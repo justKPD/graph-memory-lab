@@ -1,0 +1,380 @@
+[
+  {
+    "status": "PASS",
+    "run_id": "da2ccac7-7c82-42bf-81fe-1da25415bc3a",
+    "spec": {
+      "name": "ring_holdout_reduced_2048",
+      "family": "ring",
+      "nodes": 2048,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "resident",
+    "repeat": 3,
+    "graph_hash": "355721959d8a966833362aaaf3361352a38c97cf0f7113431b388f1674afcd9f",
+    "edges": 24576,
+    "nodes": 2048,
+    "structural_bytes": 835600,
+    "setup_ms": 1099.0981000068132,
+    "conversion_ms": 802.658300002804,
+    "cold_step_ms": 279.16009999171365,
+    "base_allocated_bytes": 69705216,
+    "base_reserved_bytes": 85983232,
+    "peak_allocated_bytes": 81510912,
+    "peak_reserved_bytes": 85983232,
+    "incremental_peak_bytes": 11805696,
+    "wall_ms": [
+      6.562599999597296,
+      7.640299998456612,
+      5.591399996774271,
+      5.766300004324876,
+      5.873599991900846,
+      6.433300004573539,
+      6.340699997963384,
+      7.073700006003492,
+      6.085200002416968
+    ],
+    "forward_gpu_ms": [
+      2.988863945007324,
+      3.466048002243042,
+      2.054784059524536,
+      2.1903679370880127,
+      2.1028800010681152,
+      2.409087896347046,
+      2.4665920734405518,
+      3.1278719902038574,
+      2.287616014480591
+    ],
+    "backward_gpu_ms": [
+      2.819391965866089,
+      3.7999041080474854,
+      3.0680959224700928,
+      3.2166080474853516,
+      3.266688108444214,
+      3.3535680770874023,
+      3.4233601093292236,
+      3.3346240520477295,
+      3.2923200130462646
+    ],
+    "optimizer_gpu_ms": [
+      0.4520319998264313,
+      0.30112001299858093,
+      0.2999359965324402,
+      0.2688640058040619,
+      0.42931199073791504,
+      0.5362240076065063,
+      0.37116798758506775,
+      0.5338879823684692,
+      0.4222399890422821
+    ],
+    "first_loss": 2.0156965255737305,
+    "losses": [
+      2.0156965255737305,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1610846208,
+    "host_rss_peak_bytes": 1610887168,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 170,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 170,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 57,
+      "active_requests.current": 0,
+      "active_requests.freed": 57,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 346,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 1040,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 44,
+    "power_mw_after": 11524,
+    "device_used_bytes_after": 489787392,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "joint"
+  },
+  {
+    "status": "PASS",
+    "run_id": "334a06ed-2f38-4a60-993d-63323df73578",
+    "spec": {
+      "name": "ring_holdout_reduced_2048",
+      "family": "ring",
+      "nodes": 2048,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "checkpoint",
+    "repeat": 3,
+    "graph_hash": "355721959d8a966833362aaaf3361352a38c97cf0f7113431b388f1674afcd9f",
+    "edges": 24576,
+    "nodes": 2048,
+    "structural_bytes": 835600,
+    "setup_ms": 13.439400005154312,
+    "conversion_ms": 2.6799000042956322,
+    "cold_step_ms": 18.27249999041669,
+    "base_allocated_bytes": 69705216,
+    "base_reserved_bytes": 81788928,
+    "peak_allocated_bytes": 77578752,
+    "peak_reserved_bytes": 81788928,
+    "incremental_peak_bytes": 7873536,
+    "wall_ms": [
+      15.952200003084727,
+      14.700800005812198,
+      16.346900010830723,
+      14.09609999973327,
+      15.962000004947186,
+      15.154199994867668,
+      15.989899999112822,
+      15.37379999354016,
+      15.373600006569177
+    ],
+    "forward_gpu_ms": [
+      5.157599925994873,
+      4.49235200881958,
+      6.23635196685791,
+      4.480544090270996,
+      4.975967884063721,
+      4.555744171142578,
+      5.351359844207764,
+      4.634880065917969,
+      4.562528133392334
+    ],
+    "backward_gpu_ms": [
+      10.354047775268555,
+      9.695296287536621,
+      9.340255737304688,
+      9.054368019104004,
+      10.510144233703613,
+      10.112192153930664,
+      10.131104469299316,
+      10.083552360534668,
+      10.30076789855957
+    ],
+    "optimizer_gpu_ms": [
+      0.27875199913978577,
+      0.4315840005874634,
+      0.6164479851722717,
+      0.4108160138130188,
+      0.389055997133255,
+      0.2911359965801239,
+      0.4216960072517395,
+      0.5481600165367126,
+      0.42793598771095276
+    ],
+    "first_loss": 2.0156965255737305,
+    "losses": [
+      2.0156965255737305,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514,
+      2.0156962871551514
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1634963456,
+    "host_rss_peak_bytes": 1635024896,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 340,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 340,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 114,
+      "active_requests.current": 0,
+      "active_requests.freed": 114,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 346,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 1040,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 43,
+    "power_mw_after": 13259,
+    "device_used_bytes_after": 485593088,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "independent"
+  }
+]

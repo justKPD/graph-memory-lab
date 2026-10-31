@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": [
+    "manifest-hash",
+    "raw-file-hashes",
+    "profile-identity",
+    "timing-from-raw",
+    "memory-from-raw",
+    "measured-source-snapshot",
+    "forged-derived-speed-rejected",
+    "runtime-ledger-external-root"
+  ],
+  "limitations": "Consistency checks are not signed authenticity."
+}

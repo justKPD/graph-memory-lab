@@ -1,0 +1,60 @@
+{
+  "python": "3.13.15",
+  "torch": "2.14.1+cu130",
+  "cuda_runtime": "13.0",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "capability": [
+    12,
+    0
+  ],
+  "compiled_architectures": [
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120"
+  ],
+  "nvml_total_bytes": 8546942976,
+  "nvml_free_bytes_at_check": 4879843328,
+  "checks": {
+    "resident": {
+      "passed": true,
+      "loss": 0.9975817799568176,
+      "maximum_abs_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "checkpoint": {
+      "passed": true,
+      "loss": 0.9975817799568176,
+      "maximum_abs_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "offload": {
+      "passed": true,
+      "loss": 0.9975817799568176,
+      "maximum_abs_errors": [
+        0.0,
+        4.3655745685100555e-11,
+        6.984919309616089e-10,
+        4.656612873077393e-10,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "is_performance_benchmark": false,
+  "limitations": "Small MLP smoke check; not graph performance or council integration"
+}

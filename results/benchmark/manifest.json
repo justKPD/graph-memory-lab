@@ -1,0 +1,79 @@
+{
+  "created_unix": 1792784739.6756918,
+  "client_date": "2026-10-24",
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "device_properties": "_CudaDeviceProperties(name='NVIDIA GeForce RTX 5060 Laptop GPU', major=12, minor=0, total_memory=8123MB, multi_processor_count=26, uuid=80e10dc2-5076-e4f2-0f2d-3215274bce55, pci_bus_id=2, pci_device_id=0, pci_domain_id=0, L2_cache_size=32MB)",
+  "repeats": 5,
+  "warmup_steps": 3,
+  "measured_steps_per_config": 7,
+  "workloads": [
+    {
+      "name": "uniform_train",
+      "family": "uniform",
+      "nodes": 4096,
+      "degree": 16,
+      "width": 64,
+      "depth": 4,
+      "split": "train"
+    },
+    {
+      "name": "skew_train",
+      "family": "skewed",
+      "nodes": 4096,
+      "degree": 16,
+      "width": 64,
+      "depth": 4,
+      "split": "train"
+    },
+    {
+      "name": "ring_holdout",
+      "family": "ring",
+      "nodes": 8192,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    {
+      "name": "uniform_large_holdout",
+      "family": "uniform",
+      "nodes": 16384,
+      "degree": 24,
+      "width": 96,
+      "depth": 6,
+      "split": "holdout"
+    },
+    {
+      "name": "karate_public",
+      "family": "karate",
+      "nodes": 34,
+      "degree": 0,
+      "width": 64,
+      "depth": 4,
+      "split": "public-reference"
+    }
+  ],
+  "protocol": "Independent sequential processes by repeat; random config order within worker; clean model and allocator between configs; synchronized wall and GPU events; no discarded samples.",
+  "limitations": [
+    "One laptop GPU; generated mechanism workloads plus tiny public graph",
+    "Host RSS sampled; transient peaks may be missed",
+    "Pinned bytes are logical payload; allocator stats separately reported",
+    "Setup timing includes hashing/generation/CSR construction as applicable",
+    "Dense floating activations offloaded; integer/sparse structure retained"
+  ],
+  "source_hashes": {
+    "gml/benchmark.py": "8a7e7985eafe2590306039fc097fde5b3bff99b877e47ddb35749c2b244dd966",
+    "gml/graph.py": "07943b2eed56b98191a910a4a9c73ad13d5397fc3534395cf916950262aebac3",
+    "gml/kernel.py": "69a2ad6b193f5371f73f5fe8fbbcd8f9a90d81060c41570ed945fbce0fe301f5",
+    "gml/memory.py": "28650bc891a59915d1f848f73848f2e40fd6bf891513c7e5afd9688d8ba3c9c7",
+    "gml/model.py": "3494f98333ce76dec01fa9f5a056722879e582de77ee2571346c397bd0b7ddf1",
+    "gml/validate.py": "d22be4d6182c882aa852dc2efef59df605d1e66664ea3e0e48e8b68a0ae1f3f5",
+    "gml/__init__.py": "4ae409d441d63cb25499ce71318c76bbe9d7360ffce1b22999de4e776681fe0c",
+    "csrc/aggregate.cu": "e65c6927257a6b8c6376722c3cf12218422a8e93b62635e6c0695200de05f0ab",
+    "csrc/binding.cpp": "9ccd642ef2f4ab74d59e5f01af7503f5b03f4339d1a7cc883a1a47e62b5d7b77"
+  }
+}

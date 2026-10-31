@@ -1,0 +1,72 @@
+[
+  {
+    "timestamp_unix": 1792777645.7211332,
+    "monotonic_seconds": 104737.515843,
+    "source": "NVML device-wide; not per-process tensor accounting",
+    "device_uuid": "GPU-80e10dc2-5076-e4f2-0f2d-3215274bce55",
+    "device_total_bytes": 8546942976,
+    "device_free_bytes": 4873633792,
+    "device_used_bytes": 3673309184,
+    "host_available_bytes": 4768768000,
+    "gpu_utilization_percent": 3,
+    "temperature_c": 54,
+    "power_mw": 9121,
+    "collection_ms": 2.544200004194863
+  },
+  {
+    "timestamp_unix": 1792777645.9223015,
+    "monotonic_seconds": 104737.717011,
+    "source": "NVML device-wide; not per-process tensor accounting",
+    "device_uuid": "GPU-80e10dc2-5076-e4f2-0f2d-3215274bce55",
+    "device_total_bytes": 8546942976,
+    "device_free_bytes": 4837281792,
+    "device_used_bytes": 3709661184,
+    "host_available_bytes": 4955746304,
+    "gpu_utilization_percent": 3,
+    "temperature_c": 54,
+    "power_mw": 9121,
+    "collection_ms": 2.4961000017356128
+  },
+  {
+    "timestamp_unix": 1792777646.1250057,
+    "monotonic_seconds": 104737.9197152,
+    "source": "NVML device-wide; not per-process tensor accounting",
+    "device_uuid": "GPU-80e10dc2-5076-e4f2-0f2d-3215274bce55",
+    "device_total_bytes": 8546942976,
+    "device_free_bytes": 4877500416,
+    "device_used_bytes": 3669442560,
+    "host_available_bytes": 4979277824,
+    "gpu_utilization_percent": 21,
+    "temperature_c": 54,
+    "power_mw": 15266,
+    "collection_ms": 0.338700003339909
+  },
+  {
+    "timestamp_unix": 1792777646.325449,
+    "monotonic_seconds": 104738.1201583,
+    "source": "NVML device-wide; not per-process tensor accounting",
+    "device_uuid": "GPU-80e10dc2-5076-e4f2-0f2d-3215274bce55",
+    "device_total_bytes": 8546942976,
+    "device_free_bytes": 4745834496,
+    "device_used_bytes": 3801108480,
+    "host_available_bytes": 4718522368,
+    "gpu_utilization_percent": 22,
+    "temperature_c": 54,
+    "power_mw": 15721,
+    "collection_ms": 0.3432000085012987
+  },
+  {
+    "timestamp_unix": 1792777646.5261405,
+    "monotonic_seconds": 104738.32085,
+    "source": "NVML device-wide; not per-process tensor accounting",
+    "device_uuid": "GPU-80e10dc2-5076-e4f2-0f2d-3215274bce55",
+    "device_total_bytes": 8546942976,
+    "device_free_bytes": 4883582976,
+    "device_used_bytes": 3663360000,
+    "host_available_bytes": 4933869568,
+    "gpu_utilization_percent": 19,
+    "temperature_c": 55,
+    "power_mw": 23244,
+    "collection_ms": 0.35400000342633575
+  }
+]

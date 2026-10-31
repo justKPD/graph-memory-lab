@@ -1,0 +1,130 @@
+{
+  "status": "CONFIRMED",
+  "exploratory_certificate": {
+    "workload": "ring_holdout",
+    "budget_bytes": 257711616,
+    "a": "ring_holdout/cuda_csr/resident",
+    "b": "ring_holdout/index_add/checkpoint",
+    "independent": "ring_holdout/cuda_csr/checkpoint",
+    "independent_feasible": true,
+    "joint": "ring_holdout/cuda_csr/resident",
+    "sequential": "ring_holdout/cuda_csr/resident",
+    "independent_over_joint": 2.2620094672728523,
+    "paired_ratio_ci95": [
+      1.9701321595217465,
+      2.623722663500132
+    ],
+    "sequential_equals_joint": true
+  },
+  "confirmation": {
+    "status": "CONFIRMED",
+    "median_ratio": 2.142579208710676,
+    "ratio_ci95": [
+      1.8870618287510201,
+      2.240254312949649
+    ],
+    "run_medians_ms": {
+      "independent": [
+        16.737099998863414,
+        15.539300002274103,
+        16.252700006589293,
+        17.42059999378398,
+        18.171000003349036
+      ],
+      "joint": [
+        8.289399993373081,
+        6.936399993719533,
+        7.552499999292195,
+        9.231600008206442,
+        8.480899996357039
+      ]
+    },
+    "max_peak_allocated_bytes": 125198848,
+    "fits_original_budget": true
+  },
+  "configurations": [
+    {
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "role": "independent"
+    },
+    {
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "role": "joint"
+    }
+  ],
+  "workload": {
+    "name": "ring_holdout",
+    "family": "ring",
+    "nodes": 8192,
+    "degree": 12,
+    "width": 96,
+    "depth": 5,
+    "split": "holdout"
+  },
+  "size_reduction": [
+    {
+      "nodes": 4096,
+      "summary": {
+        "status": "CONFIRMED",
+        "median_ratio": 2.1048682156433736,
+        "ratio_ci95": [
+          1.7368884717187318,
+          2.1450579262175
+        ],
+        "run_medians_ms": {
+          "independent": [
+            15.326299995649606,
+            15.76420001219958,
+            16.45670000289101,
+            17.40500000596512,
+            15.575199999148026
+          ],
+          "joint": [
+            7.1629000012762845,
+            7.489399999030866,
+            8.376099998713471,
+            8.113999996567145,
+            8.967300003860146
+          ]
+        },
+        "max_peak_allocated_bytes": 96248320
+      }
+    },
+    {
+      "nodes": 2048,
+      "summary": {
+        "status": "CONFIRMED",
+        "median_ratio": 2.0480812946483105,
+        "ratio_ci95": [
+          1.8848797237326398,
+          2.672170806966622
+        ],
+        "run_medians_ms": {
+          "independent": [
+            18.461200001183897,
+            17.121400000178255,
+            15.937399992253631,
+            15.37379999354016,
+            15.358000004198402
+          ],
+          "joint": [
+            9.013900009449571,
+            6.407299995771609,
+            8.241999996243976,
+            6.340699997963384,
+            8.14800000807736
+          ]
+        },
+        "max_peak_allocated_bytes": 81510912
+      }
+    }
+  ],
+  "limitations": [
+    "Two bounded size reductions, not a globally minimal graph",
+    "Reduced cases compare the selected pair, not all configurations retuned at each size",
+    "Exploratory selection and fresh confirmation recorded separately",
+    "Sequential retuning remains a strong alternative to joint exhaustive search"
+  ]
+}

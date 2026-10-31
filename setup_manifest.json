@@ -1,0 +1,122 @@
+{
+  "verified_date": "2026-10-23",
+  "workspace": "C:\\Users\\Drona\\Documents\\ChatGPT\\applications\\graph-memory-lab",
+  "delivery": "C:\\Users\\Drona\\Downloads\\ChatGPT\\Graph_Memory_Lab",
+  "environment": "C:\\Users\\Drona\\Documents\\ChatGPT\\applications\\graph-memory-lab\\.venv",
+  "evidence": {
+    "runtime_verified.json": {
+      "python": "3.13.15",
+      "torch": "2.14.1+cu130",
+      "cuda_runtime": "13.0",
+      "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "capability": [
+        12,
+        0
+      ],
+      "compiled_architectures": [
+        "sm_75",
+        "sm_80",
+        "sm_86",
+        "sm_90",
+        "sm_100",
+        "sm_120"
+      ],
+      "nvml_total_bytes": 8546942976,
+      "nvml_free_bytes_at_check": 4879843328,
+      "checks": {
+        "resident": {
+          "passed": true,
+          "loss": 0.9975817799568176,
+          "maximum_abs_errors": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "checkpoint": {
+          "passed": true,
+          "loss": 0.9975817799568176,
+          "maximum_abs_errors": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "offload": {
+          "passed": true,
+          "loss": 0.9975817799568176,
+          "maximum_abs_errors": [
+            0.0,
+            4.3655745685100555e-11,
+            6.984919309616089e-10,
+            4.656612873077393e-10,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "is_performance_benchmark": false,
+      "limitations": "Small MLP smoke check; not graph performance or council integration"
+    },
+    "graph_verified.json": {
+      "checks": {
+        "cpu_reference": {
+          "passed": true,
+          "loss": 1.2236692546753247,
+          "max_abs_error": 0.0
+        },
+        "resident": {
+          "passed": true,
+          "loss": 1.223669254675325,
+          "max_abs_error": 1.1102230246251565e-16
+        },
+        "checkpoint": {
+          "passed": true,
+          "loss": 1.223669254675325,
+          "max_abs_error": 1.1102230246251565e-16
+        },
+        "offload": {
+          "passed": true,
+          "loss": 1.223669254675325,
+          "max_abs_error": 1.1102230246251565e-16
+        }
+      },
+      "dtype": "float64",
+      "nodes": 6,
+      "edges": 6,
+      "tests": [
+        "output",
+        "input_gradient",
+        "parameter_gradients",
+        "SGD_update"
+      ],
+      "is_benchmark": false,
+      "custom_cuda_aggregation": false,
+      "limitations": "Tiny deterministic graph; no stochastic/multistep convergence guarantee"
+    },
+    "extension_verified.json": {
+      "extension_compile_and_execution": "PASS",
+      "elements_checked": 32,
+      "is_graph_kernel": false,
+      "is_benchmark": false
+    },
+    "pyg_verified.json": {
+      "pyg": "2.8.1",
+      "GCNConv_cuda_forward_backward": "PASS",
+      "cudnn_version": 92400,
+      "is_benchmark": false
+    }
+  },
+  "nsight_systems_cuda_kernel_trace": "PASS",
+  "nsight_compute_counters": "BLOCKED: ERR_NVGPUCTRPERM; no driver setting changed",
+  "controller_tests_passed": 13,
+  "optimization_benchmark_run": false,
+  "simulator_installed": false,
+  "full_project_complete": false
+}

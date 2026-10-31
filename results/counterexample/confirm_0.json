@@ -1,0 +1,380 @@
+[
+  {
+    "status": "PASS",
+    "run_id": "0c740e15-d145-474d-a743-d24c5a3db4a4",
+    "spec": {
+      "name": "ring_holdout",
+      "family": "ring",
+      "nodes": 8192,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "checkpoint",
+    "repeat": 0,
+    "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+    "edges": 98304,
+    "nodes": 8192,
+    "structural_bytes": 3342352,
+    "setup_ms": 1152.626399998553,
+    "conversion_ms": 823.5515999986092,
+    "cold_step_ms": 274.46110000892077,
+    "base_allocated_bytes": 76930560,
+    "base_reserved_bytes": 117440512,
+    "peak_allocated_bytes": 109470208,
+    "peak_reserved_bytes": 117440512,
+    "incremental_peak_bytes": 32539648,
+    "wall_ms": [
+      16.62629999918863,
+      16.737099998863414,
+      16.794299997854978,
+      19.128599989926443,
+      17.314900003839284,
+      15.00490000762511,
+      18.204100008006208,
+      16.182399995159358,
+      16.189600006327964
+    ],
+    "forward_gpu_ms": [
+      6.212512016296387,
+      5.0562238693237305,
+      6.200416088104248,
+      7.571936130523682,
+      4.663136005401611,
+      5.028992176055908,
+      7.048895835876465,
+      5.836863994598389,
+      5.231840133666992
+    ],
+    "backward_gpu_ms": [
+      9.850048065185547,
+      11.036352157592773,
+      9.863743782043457,
+      11.03222370147705,
+      11.926655769348145,
+      9.456095695495605,
+      10.627296447753906,
+      9.666399955749512,
+      10.430624008178711
+    ],
+    "optimizer_gpu_ms": [
+      0.37756800651550293,
+      0.5171200037002563,
+      0.5758399963378906,
+      0.4416640102863312,
+      0.6484159827232361,
+      0.3978239893913269,
+      0.4415999948978424,
+      0.5203199982643127,
+      0.41833600401878357
+    ],
+    "first_loss": 2.014437675476074,
+    "losses": [
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1615982592,
+    "host_rss_peak_bytes": 1616613376,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 170,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 170,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 57,
+      "active_requests.current": 0,
+      "active_requests.freed": 57,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 375,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 1126,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 43,
+    "power_mw_after": 11728,
+    "device_used_bytes_after": 521244672,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "independent"
+  },
+  {
+    "status": "PASS",
+    "run_id": "8f960958-e287-4e97-bc1f-de5ab8dc9792",
+    "spec": {
+      "name": "ring_holdout",
+      "family": "ring",
+      "nodes": 8192,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "resident",
+    "repeat": 0,
+    "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+    "edges": 98304,
+    "nodes": 8192,
+    "structural_bytes": 3342352,
+    "setup_ms": 52.66709999705199,
+    "conversion_ms": 34.333799994783476,
+    "cold_step_ms": 9.158100001513958,
+    "base_allocated_bytes": 77979136,
+    "base_reserved_bytes": 138412032,
+    "peak_allocated_bytes": 125198848,
+    "peak_reserved_bytes": 138412032,
+    "incremental_peak_bytes": 47219712,
+    "wall_ms": [
+      8.641399996122345,
+      7.131899998057634,
+      8.289399993373081,
+      7.329000000027008,
+      8.126300002913922,
+      11.30760001251474,
+      7.132599988835864,
+      8.62079999933485,
+      9.156899992376566
+    ],
+    "forward_gpu_ms": [
+      3.7848000526428223,
+      3.200767993927002,
+      4.632863998413086,
+      2.754784107208252,
+      3.2745280265808105,
+      5.672736167907715,
+      2.377023935317993,
+      3.6164159774780273,
+      3.549504041671753
+    ],
+    "backward_gpu_ms": [
+      4.224639892578125,
+      3.328416109085083,
+      3.1647679805755615,
+      4.089248180389404,
+      4.159776210784912,
+      5.0793280601501465,
+      4.279263973236084,
+      4.436960220336914,
+      5.164671897888184
+    ],
+    "optimizer_gpu_ms": [
+      0.4352000057697296,
+      0.43251198530197144,
+      0.41286399960517883,
+      0.4025920033454895,
+      0.578112006187439,
+      0.46643200516700745,
+      0.40614399313926697,
+      0.4837439954280853,
+      0.3569920063018799
+    ],
+    "first_loss": 2.014437675476074,
+    "losses": [
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495,
+      2.014437437057495
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1640484864,
+    "host_rss_peak_bytes": 1640521728,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 340,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 340,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 114,
+      "active_requests.current": 0,
+      "active_requests.freed": 114,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 375,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 1126,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 44,
+    "power_mw_after": 15929,
+    "device_used_bytes_after": 542216192,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "joint"
+  }
+]

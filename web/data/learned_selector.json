@@ -1,0 +1,149 @@
+{
+  "model": "Local NumPy ridge regression on log latency",
+  "training_profiles": 24,
+  "train_ids": [
+    "skew_train/cuda_csr/checkpoint",
+    "skew_train/cuda_csr/offload",
+    "skew_train/cuda_csr/resident",
+    "skew_train/index_add/checkpoint",
+    "skew_train/index_add/offload",
+    "skew_train/index_add/resident",
+    "skew_train/pyg/checkpoint",
+    "skew_train/pyg/offload",
+    "skew_train/pyg/resident",
+    "skew_train/sparse/checkpoint",
+    "skew_train/sparse/offload",
+    "skew_train/sparse/resident",
+    "uniform_train/cuda_csr/checkpoint",
+    "uniform_train/cuda_csr/offload",
+    "uniform_train/cuda_csr/resident",
+    "uniform_train/index_add/checkpoint",
+    "uniform_train/index_add/offload",
+    "uniform_train/index_add/resident",
+    "uniform_train/pyg/checkpoint",
+    "uniform_train/pyg/offload",
+    "uniform_train/pyg/resident",
+    "uniform_train/sparse/checkpoint",
+    "uniform_train/sparse/offload",
+    "uniform_train/sparse/resident"
+  ],
+  "cv": [
+    {
+      "alpha": 0.1,
+      "group_cv_log_mse": 0.009111397758510007
+    },
+    {
+      "alpha": 1.0,
+      "group_cv_log_mse": 0.009118677964713983
+    },
+    {
+      "alpha": 10.0,
+      "group_cv_log_mse": 0.02735806610004254
+    }
+  ],
+  "parameters": {
+    "center": [
+      0.0,
+      8.318010277546874,
+      11.090370147631774,
+      4.174387269895636,
+      1.6094379124341005,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333,
+      0.08333333333333333
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.27638539919628324,
+      0.27638539919628324,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.2763853991962833,
+      0.27638539919628324,
+      0.27638539919628324,
+      0.27638539919628324
+    ],
+    "weights": [
+      2.575871068642779,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.09998542272965528,
+      0.07917336502648306,
+      0.08512989920481649,
+      -0.10362266038776864,
+      0.07538037648383436,
+      0.006748534082104666,
+      0.004998434399567318,
+      0.12706434427414956,
+      0.07418639194246714,
+      -0.20009108540356832,
+      0.010693675952846716,
+      -0.05967585284498865
+    ],
+    "alpha": 0.1
+  },
+  "held_out_trials": [
+    {
+      "workload": "karate_public",
+      "learned_choice": "karate_public/cuda_csr/resident",
+      "fixed_choice": "karate_public/cuda_csr/resident",
+      "oracle": "karate_public/cuda_csr/resident",
+      "learned_regret_ratio": 1.0,
+      "fixed_regret_ratio": 1.0,
+      "predicted_step_ms": 6.372005672473159,
+      "actual_step_ms": 7.117599991033785
+    },
+    {
+      "workload": "ring_holdout",
+      "learned_choice": "ring_holdout/cuda_csr/resident",
+      "fixed_choice": "ring_holdout/cuda_csr/resident",
+      "oracle": "ring_holdout/cuda_csr/resident",
+      "learned_regret_ratio": 1.0,
+      "fixed_regret_ratio": 1.0,
+      "predicted_step_ms": 6.372005672473159,
+      "actual_step_ms": 7.117300003301352
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "learned_choice": "uniform_large_holdout/cuda_csr/resident",
+      "fixed_choice": "uniform_large_holdout/cuda_csr/resident",
+      "oracle": "uniform_large_holdout/cuda_csr/resident",
+      "learned_regret_ratio": 1.0,
+      "fixed_regret_ratio": 1.0,
+      "predicted_step_ms": 6.372005672473159,
+      "actual_step_ms": 7.704100004048087
+    }
+  ],
+  "fixed_training_choice": [
+    "cuda_csr",
+    "resident"
+  ],
+  "mean_regret_advantage": 0.0,
+  "decision": "RETAIN_SIMPLE_RULE",
+  "used_for_runtime_control": false,
+  "limitations": [
+    "Only two training graph families with identical size/width/depth; inadequate evidence for generalization",
+    "Unconstrained latency selection; feasibility and correctness remain deterministic vetoes",
+    "Three held-out graph regimes are descriptive, not a statistical population claim",
+    "No LLM, external model/API, or autonomous change to numerical acceptance"
+  ]
+}

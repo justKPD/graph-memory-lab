@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "base_url": "https://graph-memory-lab.vercel.app",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14824,
+      "matches_local_release": true
+    },
+    {
+      "path": "/chat.js",
+      "status": 200,
+      "bytes": 5613,
+      "matches_local_release": true
+    },
+    {
+      "path": "/data/registry.json",
+      "status": 200,
+      "bytes": 148354,
+      "matches_local_release": true
+    },
+    {
+      "path": "/data/scope_audit.json",
+      "status": 200,
+      "bytes": 4731,
+      "matches_local_release": true
+    },
+    {
+      "path": "/downloads/technical-overview.pdf",
+      "status": 200,
+      "bytes": 82772,
+      "matches_local_release": true
+    }
+  ],
+  "method": "Unauthenticated HTTPS requests without Vercel cookie or bypass token"
+}

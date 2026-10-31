@@ -1,0 +1,28 @@
+(function(root){
+ 'use strict';
+ function route(text, data) {
+  if(typeof text!=='string'||text.length>512)throw Error('Use a message of 1–512 characters.');
+  const q=text.trim().toLowerCase();
+  if(!q)throw Error('Enter a message.');
+  if(/^(help|suggestions|what next|next steps)$/.test(q))return {kind:'suggestions',message:'Start with scope, then compare a workload under a declared MiB budget. Inspect a profile, propose a run, or inspect completed replay steps. Local only: run replay, job status, cancel replay.',suggestions:['scope','compare uniform_large_holdout budget 200','propose ring_holdout budget 120','replay council','run replay','job status']};
+  if(q==='scope'||/what.*(build|a and b)|a\+b|plan audit/.test(q))return {kind:'scope',message:'A is the C++/CUDA dual-CSR aggregation and transpose backward. B is resident/checkpoint/dense-activation offload, with measured independent composition versus retuning and joint selection. The control council and this command chat are additional layers. See the scope audit for implemented work and explicitly deferred research ideas.',audit:data.audit};
+  if(/^(run replay|job status|cancel replay)$/.test(q))return {kind:'local-control',command:q};
+  if(q==='results'||q==='negative results')return {kind:'results',message:'Large held-out uniform: 7.70 ms custom resident versus 19.18 ms fastest tested resident library path (2.49x). Fresh selected ring confirmation: 2.14x retuning versus independent composition. Sequential retuning matched joint selection in 15/15 offline cases. Council completion tied simpler adaptive rules; learned selection tied the fixed rule. One laptop and bounded workloads; no universal performance claim.'};
+  if(q==='status')return {kind:'status',message:'Saved study: 60 profiles, 300 main runs. Public chat inspects evidence and plans; it does not control your GPU remotely. Use job status on the local server for a newly launched replay.'};
+  let m=q.match(/^replay(?:\s+(fixed|threshold|greedy_validated|council))?(?:\s+step\s+(\d+))?$/);
+  if(m){let t=data.runtime.trials.find(t=>t.strategy===(m[1]||'council'));if(!t)throw Error('Replay unavailable');if(m[2]){let i=Number(m[2])-1;if(!Number.isInteger(i)||i<0||i>=t.steps.length)throw Error('Step outside recorded replay');return {kind:'recorded-replay',strategy:t.strategy,step:i+1,decision:t.steps[i]};}return {kind:'recorded-replay',message:'Completed replay, not new execution.',trial:t};}
+  if(/^(compare|propose|explain)\s/.test(q)||q==='verify')return {kind:'evidence',command:q};
+  throw Error('Unsupported request. Try scope, results, help, compare, explain, propose, replay council, or local run replay. Commands cannot edit evidence or execute shell text.');
+ }
+ if(typeof module!=='undefined')module.exports={route};
+ if(typeof document==='undefined')return;
+ const log=document.getElementById('chat-log'),form=document.getElementById('chat-form'),input=document.getElementById('chat-input');
+ let data,local=false,busy=false;
+ function bubble(who,value){let box=document.createElement('article');box.style.cssText='padding:14px;margin:12px 0;border:1px solid #365267;border-radius:10px;background:'+(who==='You'?'#193d35':'#0c1b28');let title=document.createElement('strong');title.textContent=who;let body=document.createElement('pre');body.style.marginBottom='0';body.textContent=typeof value==='string'?value:JSON.stringify(value,null,2);box.append(title,body);log.append(box);log.scrollTop=log.scrollHeight;}
+ async function send(text){if(busy)return;busy=true;bubble('You',text);try{if(!data)throw Error('Evidence is still loading.');let r=route(text,data);if(r.kind==='evidence'){r=local?await post('/api/assistant',{text:r.command}):localAssistant(r.command);}else if(r.kind==='local-control'){if(!local)throw Error('GPU execution is available only at http://127.0.0.1:8765 on the GPU computer. Public hosting cannot reach it. Open the local lab and send this command there.');r=await post('/api/control',{command:r.command});}bubble('Lab',r);}catch(e){bubble('Lab','Refused: '+e.message);}finally{busy=false;}}
+ async function post(url,value){let r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(value)}),v=await r.json();if(!r.ok)throw Error(v.error||'Request refused');return v;}
+ form.addEventListener('submit',e=>{e.preventDefault();let text=input.value;input.value='';send(text);});
+ Promise.all(['runtime','scope_audit'].map(n=>fetch('data/'+n+'.json').then(r=>{if(!r.ok)throw Error('Missing '+n);return r.json();}))).then(async ([runtime,audit])=>{data={runtime,audit};if(['127.0.0.1','localhost'].includes(location.hostname)){try{let s=await fetch('/api/status').then(r=>r.json());local=s.gpu_execution_endpoint===true;}catch{}}document.getElementById('chat-mode').textContent=local?'Local control enabled: one bounded, time-limited GPU replay; status and cancellation available. Existing study evidence is preserved.':'Public / static mode: evidence, suggestions, proposals and recorded replay. GPU jobs run only in the local lab.';for(let q of ['scope','results','compare uniform_large_holdout budget 200','replay council','help']){let b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=()=>send(q);document.getElementById('suggestions').append(b);}bubble('Lab','Ready. Ask what A+B includes, compare a memory budget, inspect a replay, or ask for next steps. This is a deterministic command assistant, not an LLM.');}).catch(e=>bubble('Lab','Evidence unavailable: '+e.message));
+ root.GMLChat={route};
+})(typeof window!=='undefined'?window:globalThis);
+

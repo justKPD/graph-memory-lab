@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-24",
+  "local_project": "COMPLETE_TESTED",
+  "public_deployment": "DEPLOYED_PUBLIC_VERIFIED",
+  "chat_router_checks": 12,
+  "local_control_api_checks": 9,
+  "bounded_local_gpu_execution": true,
+  "mail_sent": false,
+  "application_submitted": false,
+  "profiles": 60,
+  "main_measured_runs": 300,
+  "kernel_training_checks": 38,
+  "cpu_contract_tests": 37,
+  "additional_cuda_checks": 4,
+  "api_tests": 10,
+  "source_snapshot_verified": true,
+  "simulator_implemented": false,
+  "llm_used": false,
+  "learned_selector": "EVALUATED_NOT_PROMOTED",
+  "limitations_file": "RESULTS.md"
+}

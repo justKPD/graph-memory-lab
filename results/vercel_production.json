@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_AFbzcakjt9LgCL5WWazbzdvH4YSB",
+    "url": "https://graph-memory-h60qozdck-drona3.vercel.app",
+    "productionUrl": "https://graph-memory-lab.vercel.app",
+    "inspectorUrl": "https://vercel.com/drona3/graph-memory-lab/AFbzcakjt9LgCL5WWazbzdvH4YSB",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_AFbzcakjt9LgCL5WWazbzdvH4YSB",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment graph-memory-h60qozdck-drona3.vercel.app ready. Production URL: https://graph-memory-lab.vercel.app",
+  "next": [
+    {
+      "command": "vercel curl https://graph-memory-lab.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect graph-memory-h60qozdck-drona3.vercel.app --scope drona3",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope drona3",
+      "when": "Promote to production"
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+[
+  {
+    "status": "PASS",
+    "run_id": "5d96b7dd-26e1-4384-a2f3-4d2c3318a368",
+    "spec": {
+      "name": "ring_holdout_reduced_4096",
+      "family": "ring",
+      "nodes": 4096,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "resident",
+    "repeat": 2,
+    "graph_hash": "acecaa52af5ff02fd328d454d01ba7b3f015dc11eeb97a32d5644932ac4aedd6",
+    "edges": 49152,
+    "nodes": 4096,
+    "structural_bytes": 1671184,
+    "setup_ms": 1165.6981000123778,
+    "conversion_ms": 829.7807999915676,
+    "cold_step_ms": 269.3498000007821,
+    "base_allocated_bytes": 72113664,
+    "base_reserved_bytes": 113246208,
+    "peak_allocated_bytes": 96248320,
+    "peak_reserved_bytes": 113246208,
+    "incremental_peak_bytes": 24134656,
+    "wall_ms": [
+      8.376099998713471,
+      8.872500009601936,
+      8.793899993179366,
+      8.646000002045184,
+      7.740600005490705,
+      8.764800004428253,
+      7.025500002782792,
+      7.249500005855225,
+      6.435799994505942
+    ],
+    "forward_gpu_ms": [
+      2.940000057220459,
+      3.406559944152832,
+      2.5199999809265137,
+      3.4919040203094482,
+      2.7445759773254395,
+      3.017184019088745,
+      3.029632091522217,
+      2.732896089553833,
+      2.911871910095215
+    ],
+    "backward_gpu_ms": [
+      4.734208106994629,
+      4.825183868408203,
+      5.766751766204834,
+      4.36246395111084,
+      4.5,
+      5.010655879974365,
+      3.5246078968048096,
+      4.017632007598877,
+      3.106271982192993
+    ],
+    "optimizer_gpu_ms": [
+      0.4447999894618988,
+      0.477183997631073,
+      0.42447999119758606,
+      0.5991039872169495,
+      0.3733440041542053,
+      0.5878080129623413,
+      0.3787519931793213,
+      0.40374401211738586,
+      0.328000009059906
+    ],
+    "first_loss": 2.0156936645507812,
+    "losses": [
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.015693426132202,
+      2.015693426132202
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1617739776,
+    "host_rss_peak_bytes": 1617809408,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 170,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 170,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 57,
+      "active_requests.current": 0,
+      "active_requests.freed": 57,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 323,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 969,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 44,
+    "power_mw_after": 10448,
+    "device_used_bytes_after": 517050368,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "joint"
+  },
+  {
+    "status": "PASS",
+    "run_id": "03018bec-97f7-4cc5-9d5b-9a51eaa83c33",
+    "spec": {
+      "name": "ring_holdout_reduced_4096",
+      "family": "ring",
+      "nodes": 4096,
+      "degree": 12,
+      "width": 96,
+      "depth": 5,
+      "split": "holdout"
+    },
+    "backend": "cuda_csr",
+    "policy": "checkpoint",
+    "repeat": 2,
+    "graph_hash": "acecaa52af5ff02fd328d454d01ba7b3f015dc11eeb97a32d5644932ac4aedd6",
+    "edges": 49152,
+    "nodes": 4096,
+    "structural_bytes": 1671184,
+    "setup_ms": 45.06069999479223,
+    "conversion_ms": 3.4820000000763685,
+    "cold_step_ms": 19.035999997868203,
+    "base_allocated_bytes": 72113664,
+    "base_reserved_bytes": 92274688,
+    "peak_allocated_bytes": 88384000,
+    "peak_reserved_bytes": 92274688,
+    "incremental_peak_bytes": 16270336,
+    "wall_ms": [
+      21.68119999987539,
+      18.385299990768544,
+      13.808400006382726,
+      16.45670000289101,
+      17.429300001822412,
+      15.251899996655993,
+      15.413500004797243,
+      15.268200004356913,
+      18.48759999847971
+    ],
+    "forward_gpu_ms": [
+      8.11030387878418,
+      6.291903972625732,
+      4.3672637939453125,
+      5.880256175994873,
+      5.873248100280762,
+      5.013567924499512,
+      5.201920032501221,
+      4.491519927978516,
+      6.099008083343506
+    ],
+    "backward_gpu_ms": [
+      12.89964771270752,
+      11.139328002929688,
+      8.787391662597656,
+      9.966976165771484,
+      10.846207618713379,
+      9.549087524414062,
+      9.811871528625488,
+      10.355232238769531,
+      11.905376434326172
+    ],
+    "optimizer_gpu_ms": [
+      0.4775039851665497,
+      0.6482239961624146,
+      0.506879985332489,
+      0.446399986743927,
+      0.5849599838256836,
+      0.5617600083351135,
+      0.31747201085090637,
+      0.3452160060405731,
+      0.3768959939479828
+    ],
+    "first_loss": 2.0156936645507812,
+    "losses": [
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.0156936645507812,
+      2.015693426132202,
+      2.015693426132202
+    ],
+    "max_validation_abs_error": 4.76837158203125e-07,
+    "host_rss_start_bytes": 1642725376,
+    "host_rss_peak_bytes": 1642795008,
+    "offload": [
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      },
+      {
+        "to_host_bytes": 0,
+        "to_device_bytes": 0,
+        "host_live_bytes": 0,
+        "host_peak_bytes": 0,
+        "packed_tensors": 0
+      }
+    ],
+    "host_allocator_stats": {
+      "active_bytes.allocated": 340,
+      "active_bytes.current": 0,
+      "active_bytes.freed": 340,
+      "active_bytes.peak": 4,
+      "active_requests.allocated": 114,
+      "active_requests.current": 0,
+      "active_requests.freed": 114,
+      "active_requests.peak": 1,
+      "allocated_bytes.allocated": 13,
+      "allocated_bytes.current": 13,
+      "allocated_bytes.freed": 0,
+      "allocated_bytes.peak": 13,
+      "allocations.allocated": 3,
+      "allocations.current": 3,
+      "allocations.freed": 0,
+      "allocations.peak": 3,
+      "host_alloc_time.avg": 323,
+      "host_alloc_time.count": 3,
+      "host_alloc_time.max": 0,
+      "host_alloc_time.min": 0,
+      "host_alloc_time.total": 969,
+      "host_free_time.avg": 0,
+      "host_free_time.count": 0,
+      "host_free_time.max": 0,
+      "host_free_time.min": 0,
+      "host_free_time.total": 0,
+      "num_host_alloc": 3,
+      "num_host_free": 0
+    },
+    "temperature_c_after": 44,
+    "power_mw_after": 14040,
+    "device_used_bytes_after": 496078848,
+    "host_rss_sampling_interval_ms": 5,
+    "numerical_rtol": 0.0001,
+    "numerical_atol": 1e-05,
+    "role": "independent"
+  }
+]

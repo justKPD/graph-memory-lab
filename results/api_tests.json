@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": [
+    "read-only-status",
+    "measured-budget-selection",
+    "no-feasible-budget",
+    "proposal-not-execution",
+    "stale-graph",
+    "precision-mismatch",
+    "raw-command",
+    "validation-edit",
+    "cross-origin-refusal",
+    "full-verified-registry"
+  ],
+  "count": 10,
+  "endpoint": "http://127.0.0.1:8765",
+  "scope": "Loopback HTTP API tests; no public hosting or GPU job triggered"
+}

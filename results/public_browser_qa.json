@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "url": "https://graph-memory-lab.vercel.app",
+  "checks": [
+    "Fresh production page loads 60 profiles and scope audit",
+    "Chat selects uniform_large_holdout/cuda_csr/resident for 200 MiB budget",
+    "Proposal explicitly PROPOSED_NOT_EXECUTED",
+    "Recorded council step 1 inspection works",
+    "Public run replay explains local-only execution",
+    "Results and negative findings displayed",
+    "PDF HTTP 200 and bytes match inspected local PDF"
+  ],
+  "screenshot": "report/vercel_public_preview.png"
+}

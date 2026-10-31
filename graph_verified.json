@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "cpu_reference": {
+      "passed": true,
+      "loss": 1.2236692546753247,
+      "max_abs_error": 0.0
+    },
+    "resident": {
+      "passed": true,
+      "loss": 1.223669254675325,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    "checkpoint": {
+      "passed": true,
+      "loss": 1.223669254675325,
+      "max_abs_error": 1.1102230246251565e-16
+    },
+    "offload": {
+      "passed": true,
+      "loss": 1.223669254675325,
+      "max_abs_error": 1.1102230246251565e-16
+    }
+  },
+  "dtype": "float64",
+  "nodes": 6,
+  "edges": 6,
+  "tests": [
+    "output",
+    "input_gradient",
+    "parameter_gradients",
+    "SGD_update"
+  ],
+  "is_benchmark": false,
+  "custom_cuda_aggregation": false,
+  "limitations": "Tiny deterministic graph; no stochastic/multistep convergence guarantee"
+}

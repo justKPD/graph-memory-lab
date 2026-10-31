@@ -1,0 +1,5 @@
+Generating SQLite file .\setup_trace_retry.sqlite from .\setup_trace_retry.nsys-rep
+Processing [.\setup_trace_retry.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2025.3.2\host-windows-x64\reports\cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+100.0,1696,1,1696.0,1696.0,1696,1696,0.0,add_one(float *)
+

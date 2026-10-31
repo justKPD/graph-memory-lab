@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-24",
+  "authorized": true,
+  "provider": "Vercel",
+  "vercel_account": "justkpd",
+  "vercel_scope": "drona3",
+  "project": "graph-memory-lab",
+  "account_linked": true,
+  "status": "DEPLOYED_PUBLIC_VERIFIED",
+  "production_url": "https://graph-memory-lab.vercel.app",
+  "public_access_verified": true,
+  "external_http_status": 200,
+  "gpu_endpoint_public": false,
+  "local_gpu_controls": "http://127.0.0.1:8765",
+  "verification": "Unauthenticated HTTPS and fresh browser tests; details in public_http_checks.json and public_browser_qa.json",
+  "earlier_attempts": "Historical anonymous deployment expired/403; account sign-in and CLI authorization subsequently completed"
+}

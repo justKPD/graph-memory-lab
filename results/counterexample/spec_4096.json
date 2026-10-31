@@ -1,0 +1,23 @@
+{
+  "workload_spec": {
+    "name": "ring_holdout_reduced_4096",
+    "family": "ring",
+    "nodes": 4096,
+    "degree": 12,
+    "width": 96,
+    "depth": 5,
+    "split": "holdout"
+  },
+  "configurations": [
+    {
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "role": "independent"
+    },
+    {
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "role": "joint"
+    }
+  ]
+}

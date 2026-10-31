@@ -1,0 +1,4400 @@
+{
+  "version": 1,
+  "manifest": {
+    "created_unix": 1792784739.6756918,
+    "client_date": "2026-10-24",
+    "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "device_properties": "_CudaDeviceProperties(name='NVIDIA GeForce RTX 5060 Laptop GPU', major=12, minor=0, total_memory=8123MB, multi_processor_count=26, uuid=80e10dc2-5076-e4f2-0f2d-3215274bce55, pci_bus_id=2, pci_device_id=0, pci_domain_id=0, L2_cache_size=32MB)",
+    "repeats": 5,
+    "warmup_steps": 3,
+    "measured_steps_per_config": 7,
+    "workloads": [
+      {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      }
+    ],
+    "protocol": "Independent sequential processes by repeat; random config order within worker; clean model and allocator between configs; synchronized wall and GPU events; no discarded samples.",
+    "limitations": [
+      "One laptop GPU; generated mechanism workloads plus tiny public graph",
+      "Host RSS sampled; transient peaks may be missed",
+      "Pinned bytes are logical payload; allocator stats separately reported",
+      "Setup timing includes hashing/generation/CSR construction as applicable",
+      "Dense floating activations offloaded; integer/sparse structure retained"
+    ],
+    "source_hashes": {
+      "gml/benchmark.py": "8a7e7985eafe2590306039fc097fde5b3bff99b877e47ddb35749c2b244dd966",
+      "gml/graph.py": "07943b2eed56b98191a910a4a9c73ad13d5397fc3534395cf916950262aebac3",
+      "gml/kernel.py": "69a2ad6b193f5371f73f5fe8fbbcd8f9a90d81060c41570ed945fbce0fe301f5",
+      "gml/memory.py": "28650bc891a59915d1f848f73848f2e40fd6bf891513c7e5afd9688d8ba3c9c7",
+      "gml/model.py": "3494f98333ce76dec01fa9f5a056722879e582de77ee2571346c397bd0b7ddf1",
+      "gml/validate.py": "d22be4d6182c882aa852dc2efef59df605d1e66664ea3e0e48e8b68a0ae1f3f5",
+      "gml/__init__.py": "4ae409d441d63cb25499ce71318c76bbe9d7360ffce1b22999de4e776681fe0c",
+      "csrc/aggregate.cu": "e65c6927257a6b8c6376722c3cf12218422a8e93b62635e6c0695200de05f0ab",
+      "csrc/binding.cpp": "9ccd642ef2f4ab74d59e5f01af7503f5b03f4339d1a7cc883a1a47e62b5d7b77"
+    }
+  },
+  "manifest_sha256": "e472e56bd4eddf2b0d00ca0eef6fe796308164531b32ff454833a0c101e7d2a0",
+  "manifest_path": "results/benchmark/manifest.json",
+  "raw_sha256": {
+    "results/benchmark/repeat_0.jsonl": "06d22f9f184193a895e0e1cd3d27eed1e62d5ace8c767a2dd0d3ee72d6bcbbab",
+    "results/benchmark/repeat_1.jsonl": "65bd2d309e0b527e5cc7ecd9fadb6c4f0617a4b932553e1cab063242d446b7c2",
+    "results/benchmark/repeat_2.jsonl": "ba20b6df4353ede1b17a69f89fc0f26371cb5d9b2381832058aa3cbc4f4a15a0",
+    "results/benchmark/repeat_3.jsonl": "9d7483918ac715fcce5459afb07a2374ec58f1f8d69251ec5336d3d43ce8ef5b",
+    "results/benchmark/repeat_4.jsonl": "946462af0513bcbf6639e11812130e7772e4f8c39fee53432dd06b57516f7f67"
+  },
+  "profiles": [
+    {
+      "id": "karate_public/cuda_csr/checkpoint",
+      "workload": "karate_public",
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 13.674899993930012,
+      "run_medians_ms": [
+        13.469400000758469,
+        13.260399995488115,
+        15.091799999936484,
+        13.674899993930012,
+        14.3773999880068
+      ],
+      "ci95_ms": [
+        13.260399995488115,
+        15.091799999936484
+      ],
+      "iqr_ms": [
+        13.469400000758469,
+        14.3773999880068
+      ],
+      "peak_allocated_bytes": 67304960,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 103936,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037488640,
+      "structural_bytes": 5824,
+      "setup_ms": 8.56430000567343,
+      "conversion_ms": 2.1425000013550743,
+      "cold_step_ms": 15.011700001196004,
+      "forward_gpu_ms": 4.54307222366333,
+      "backward_gpu_ms": 8.565855979919434,
+      "optimizer_gpu_ms": 0.45532798767089844,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:1",
+        "results/benchmark/repeat_1.jsonl:28",
+        "results/benchmark/repeat_2.jsonl:51",
+        "results/benchmark/repeat_3.jsonl:7",
+        "results/benchmark/repeat_4.jsonl:58"
+      ],
+      "raw_run_ids": [
+        "c84f57f5-db55-46ef-ba88-a2160b38035d",
+        "c4d31e14-29ee-4b16-b043-df6b7b5c87e0",
+        "7326abbf-9a41-4b49-a4fc-a0344fda9dc6",
+        "854ec209-2d17-42eb-a0ec-c85a16c038c6",
+        "36e286a3-b4b9-42e3-a178-6a1c78e7bba7"
+      ]
+    },
+    {
+      "id": "karate_public/cuda_csr/offload",
+      "workload": "karate_public",
+      "backend": "cuda_csr",
+      "policy": "offload",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 9.99999999476131,
+      "run_medians_ms": [
+        11.329100001603365,
+        9.881099991616793,
+        11.64329999301117,
+        9.17180000396911,
+        9.99999999476131
+      ],
+      "ci95_ms": [
+        9.17180000396911,
+        11.64329999301117
+      ],
+      "iqr_ms": [
+        9.881099991616793,
+        11.329100001603365
+      ],
+      "peak_allocated_bytes": 67329024,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 128000,
+      "host_offload_payload_peak_bytes": 135712,
+      "to_host_bytes_per_step": 135712,
+      "host_rss_peak_bytes": 3990974464,
+      "structural_bytes": 5824,
+      "setup_ms": 8.879700006218627,
+      "conversion_ms": 1.850199987529777,
+      "cold_step_ms": 10.98459999775514,
+      "forward_gpu_ms": 4.632991790771484,
+      "backward_gpu_ms": 4.842048168182373,
+      "optimizer_gpu_ms": 0.43887999653816223,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:60",
+        "results/benchmark/repeat_1.jsonl:25",
+        "results/benchmark/repeat_2.jsonl:39",
+        "results/benchmark/repeat_3.jsonl:15",
+        "results/benchmark/repeat_4.jsonl:25"
+      ],
+      "raw_run_ids": [
+        "892be914-1e0e-48f4-9357-49d2db5dcb6b",
+        "b198e65d-5952-4858-b745-28d28d217ca5",
+        "3558849e-adeb-49cb-8e8a-b19c35c82701",
+        "eefa296a-9cf3-446e-805a-688a08eb1030",
+        "3a458c21-e7b8-4b58-8389-8c98f71750e8"
+      ]
+    },
+    {
+      "id": "karate_public/cuda_csr/resident",
+      "workload": "karate_public",
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 7.117599991033785,
+      "run_medians_ms": [
+        9.419900001375936,
+        7.192399993073195,
+        7.117599991033785,
+        5.86269999621436,
+        6.961099992622621
+      ],
+      "ci95_ms": [
+        5.86269999621436,
+        9.419900001375936
+      ],
+      "iqr_ms": [
+        6.961099992622621,
+        7.192399993073195
+      ],
+      "peak_allocated_bytes": 67315712,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 114688,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036546560,
+      "structural_bytes": 5824,
+      "setup_ms": 8.425500011071563,
+      "conversion_ms": 1.6614000051049516,
+      "cold_step_ms": 7.416100008413196,
+      "forward_gpu_ms": 3.155872106552124,
+      "backward_gpu_ms": 3.2907838821411133,
+      "optimizer_gpu_ms": 0.42447999119758606,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:45",
+        "results/benchmark/repeat_1.jsonl:19",
+        "results/benchmark/repeat_2.jsonl:33",
+        "results/benchmark/repeat_3.jsonl:43",
+        "results/benchmark/repeat_4.jsonl:59"
+      ],
+      "raw_run_ids": [
+        "26b9fbd1-f903-412e-92d2-0d36d7331389",
+        "16af9952-d4ca-4847-9710-46f38d669ecb",
+        "d08c7a76-4e20-4ca8-b1b4-11a84886d6a5",
+        "7231d0a0-eacb-40b4-9cf3-d2e513d89e10",
+        "ef1908e6-4fa8-4398-a022-4d3b426944ae"
+      ]
+    },
+    {
+      "id": "karate_public/index_add/checkpoint",
+      "workload": "karate_public",
+      "backend": "index_add",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 17.738800001097843,
+      "run_medians_ms": [
+        17.02369999838993,
+        17.738800001097843,
+        18.76079999783542,
+        18.63500000035856,
+        16.07769999827724
+      ],
+      "ci95_ms": [
+        16.07769999827724,
+        18.76079999783542
+      ],
+      "iqr_ms": [
+        17.02369999838993,
+        18.63500000035856
+      ],
+      "peak_allocated_bytes": 67363840,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 166912,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036091904,
+      "structural_bytes": 2768,
+      "setup_ms": 6.5108999988297,
+      "conversion_ms": 0.38109999150037766,
+      "cold_step_ms": 18.574700006865896,
+      "forward_gpu_ms": 5.594399929046631,
+      "backward_gpu_ms": 10.939264297485352,
+      "optimizer_gpu_ms": 0.4593279957771301,
+      "max_validation_abs_error": 1.1920928955078125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:2",
+        "results/benchmark/repeat_1.jsonl:8",
+        "results/benchmark/repeat_2.jsonl:15",
+        "results/benchmark/repeat_3.jsonl:49",
+        "results/benchmark/repeat_4.jsonl:18"
+      ],
+      "raw_run_ids": [
+        "5e95e67a-c048-491a-853b-ea2399a25bd9",
+        "5bf9c49a-d0f8-4ae6-8a2b-e399a9e8fa8a",
+        "e0cdb31d-5dda-4f8f-acca-204f37229831",
+        "c68b1de6-38b6-4fb5-913f-55b47771d0a1",
+        "5715f3fa-bd7b-4a6b-8e8f-87802d0ec740"
+      ]
+    },
+    {
+      "id": "karate_public/index_add/offload",
+      "workload": "karate_public",
+      "backend": "index_add",
+      "policy": "offload",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 13.649699991219677,
+      "run_medians_ms": [
+        13.925400009611621,
+        13.137699992512353,
+        14.11020000523422,
+        13.649699991219677,
+        13.116999994963408
+      ],
+      "ci95_ms": [
+        13.116999994963408,
+        14.11020000523422
+      ],
+      "iqr_ms": [
+        13.137699992512353,
+        13.925400009611621
+      ],
+      "peak_allocated_bytes": 67354624,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 157696,
+      "host_offload_payload_peak_bytes": 295456,
+      "to_host_bytes_per_step": 295456,
+      "host_rss_peak_bytes": 3990937600,
+      "structural_bytes": 2768,
+      "setup_ms": 7.201000000350177,
+      "conversion_ms": 0.4982999962521717,
+      "cold_step_ms": 15.241599990986288,
+      "forward_gpu_ms": 5.713183879852295,
+      "backward_gpu_ms": 7.224319934844971,
+      "optimizer_gpu_ms": 0.44950398802757263,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:39",
+        "results/benchmark/repeat_1.jsonl:27",
+        "results/benchmark/repeat_2.jsonl:41",
+        "results/benchmark/repeat_3.jsonl:25",
+        "results/benchmark/repeat_4.jsonl:1"
+      ],
+      "raw_run_ids": [
+        "340b5359-8fdc-4b33-a064-e79dbc78604b",
+        "927679f4-b2ac-4539-b987-814c4069a16c",
+        "73830de5-12b4-40e0-af76-448ab96f602d",
+        "9d132881-8afa-4656-ae67-d33768e8ffa9",
+        "d10f0f1b-8dd4-471c-8510-8e9218b69268"
+      ]
+    },
+    {
+      "id": "karate_public/index_add/resident",
+      "workload": "karate_public",
+      "backend": "index_add",
+      "policy": "resident",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 8.388800008106045,
+      "run_medians_ms": [
+        8.442000005743466,
+        7.892800000263378,
+        9.052599998540245,
+        8.388800008106045,
+        8.03539999469649
+      ],
+      "ci95_ms": [
+        7.892800000263378,
+        9.052599998540245
+      ],
+      "iqr_ms": [
+        8.03539999469649,
+        8.442000005743466
+      ],
+      "peak_allocated_bytes": 67485184,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 288256,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051570688,
+      "structural_bytes": 2768,
+      "setup_ms": 6.971299997530878,
+      "conversion_ms": 0.374700000975281,
+      "cold_step_ms": 9.918099996866658,
+      "forward_gpu_ms": 3.002527952194214,
+      "backward_gpu_ms": 4.593952178955078,
+      "optimizer_gpu_ms": 0.42716801166534424,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:56",
+        "results/benchmark/repeat_1.jsonl:53",
+        "results/benchmark/repeat_2.jsonl:36",
+        "results/benchmark/repeat_3.jsonl:32",
+        "results/benchmark/repeat_4.jsonl:7"
+      ],
+      "raw_run_ids": [
+        "2d26bc80-e358-4dab-97e2-9d2281e51c8e",
+        "b875ebda-dc23-4524-be02-40a5a74a3a23",
+        "6618cff5-355c-4120-9b2e-dbb07075bd7a",
+        "34666de3-cde7-46a6-86b0-6d8661bdda80",
+        "c89f5e7b-6d2f-4dfd-9c76-a2d0f3148778"
+      ]
+    },
+    {
+      "id": "karate_public/pyg/checkpoint",
+      "workload": "karate_public",
+      "backend": "pyg",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 16.979099993477575,
+      "run_medians_ms": [
+        20.28029999928549,
+        17.87260000128299,
+        16.979099993477575,
+        15.624499996192753,
+        15.584900000249036
+      ],
+      "ci95_ms": [
+        15.584900000249036,
+        20.28029999928549
+      ],
+      "iqr_ms": [
+        15.624499996192753,
+        17.87260000128299
+      ],
+      "peak_allocated_bytes": 67332608,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 135680,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051308544,
+      "structural_bytes": 2768,
+      "setup_ms": 8.165599996573292,
+      "conversion_ms": 0.3772000054595992,
+      "cold_step_ms": 19.217099994421005,
+      "forward_gpu_ms": 5.548960208892822,
+      "backward_gpu_ms": 10.63759994506836,
+      "optimizer_gpu_ms": 0.49091199040412903,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:24",
+        "results/benchmark/repeat_1.jsonl:44",
+        "results/benchmark/repeat_2.jsonl:46",
+        "results/benchmark/repeat_3.jsonl:5",
+        "results/benchmark/repeat_4.jsonl:3"
+      ],
+      "raw_run_ids": [
+        "f38851f2-5101-4d42-8c47-081b7367971d",
+        "7184a7de-c4ad-4899-8fc0-5d8d99460636",
+        "72d83a54-38c1-4f74-92e1-fd388eae39b7",
+        "aaae0203-cc20-48c9-8fa4-99152d0a1ef3",
+        "a29bf91b-39e4-437d-97a9-7b9ccf56a7ab"
+      ]
+    },
+    {
+      "id": "karate_public/pyg/offload",
+      "workload": "karate_public",
+      "backend": "pyg",
+      "policy": "offload",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 12.759999997797422,
+      "run_medians_ms": [
+        12.892099999589846,
+        11.178200002177618,
+        13.87290000275243,
+        12.759999997797422,
+        11.375100002624094
+      ],
+      "ci95_ms": [
+        11.178200002177618,
+        13.87290000275243
+      ],
+      "iqr_ms": [
+        11.375100002624094,
+        12.892099999589846
+      ],
+      "peak_allocated_bytes": 67324928,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 128000,
+      "host_offload_payload_peak_bytes": 135712,
+      "to_host_bytes_per_step": 135712,
+      "host_rss_peak_bytes": 4051308544,
+      "structural_bytes": 2768,
+      "setup_ms": 6.806299992604181,
+      "conversion_ms": 0.30860000697430223,
+      "cold_step_ms": 13.320800004294142,
+      "forward_gpu_ms": 5.432447910308838,
+      "backward_gpu_ms": 6.241631984710693,
+      "optimizer_gpu_ms": 0.4522239863872528,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:5",
+        "results/benchmark/repeat_1.jsonl:45",
+        "results/benchmark/repeat_2.jsonl:17",
+        "results/benchmark/repeat_3.jsonl:22",
+        "results/benchmark/repeat_4.jsonl:6"
+      ],
+      "raw_run_ids": [
+        "c0160c91-1a9d-4457-9235-00928681bea1",
+        "16e57c4d-e3d3-4319-be75-8c27b4482962",
+        "3f4b5ddc-81e0-4a7b-a9e4-1d5a32cfc700",
+        "f8a75fb0-6720-486e-90f7-cc5cdb8fe71a",
+        "c0db8916-52c7-4538-af91-18e89dce52b2"
+      ]
+    },
+    {
+      "id": "karate_public/pyg/resident",
+      "workload": "karate_public",
+      "backend": "pyg",
+      "policy": "resident",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 8.968299996922724,
+      "run_medians_ms": [
+        10.383799992268905,
+        8.125799999106675,
+        10.422099992865697,
+        8.968299996922724,
+        7.77100000414066
+      ],
+      "ci95_ms": [
+        7.77100000414066,
+        10.422099992865697
+      ],
+      "iqr_ms": [
+        8.125799999106675,
+        10.383799992268905
+      ],
+      "peak_allocated_bytes": 67332096,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 135168,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051308544,
+      "structural_bytes": 2768,
+      "setup_ms": 7.689299993216991,
+      "conversion_ms": 0.3850999928545207,
+      "cold_step_ms": 8.985499996924773,
+      "forward_gpu_ms": 3.3217599391937256,
+      "backward_gpu_ms": 5.259520053863525,
+      "optimizer_gpu_ms": 0.4132480025291443,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:19",
+        "results/benchmark/repeat_1.jsonl:46",
+        "results/benchmark/repeat_2.jsonl:35",
+        "results/benchmark/repeat_3.jsonl:51",
+        "results/benchmark/repeat_4.jsonl:36"
+      ],
+      "raw_run_ids": [
+        "09d3d62f-816a-4eb6-a568-f33bd6eafbc3",
+        "5f8a2227-a905-4ee1-ac91-640e002b7d68",
+        "89046b81-64c0-480d-b2a6-b4671689f172",
+        "a4d00daa-575e-4f85-b862-23ead206787d",
+        "302f26f0-e748-419b-a0d2-5115fa2b16c8"
+      ]
+    },
+    {
+      "id": "karate_public/sparse/checkpoint",
+      "workload": "karate_public",
+      "backend": "sparse",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 19.415000002481975,
+      "run_medians_ms": [
+        21.165799989830703,
+        18.755699988105334,
+        20.187900008750148,
+        19.415000002481975,
+        19.352399991475977
+      ],
+      "ci95_ms": [
+        18.755699988105334,
+        21.165799989830703
+      ],
+      "iqr_ms": [
+        19.352399991475977,
+        20.187900008750148
+      ],
+      "peak_allocated_bytes": 67310080,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 109056,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036546560,
+      "structural_bytes": 4920,
+      "setup_ms": 10.331600002245978,
+      "conversion_ms": 1.8730000010691583,
+      "cold_step_ms": 19.75430001039058,
+      "forward_gpu_ms": 4.906879901885986,
+      "backward_gpu_ms": 14.075103759765625,
+      "optimizer_gpu_ms": 0.4365119934082031,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:34",
+        "results/benchmark/repeat_1.jsonl:22",
+        "results/benchmark/repeat_2.jsonl:12",
+        "results/benchmark/repeat_3.jsonl:36",
+        "results/benchmark/repeat_4.jsonl:33"
+      ],
+      "raw_run_ids": [
+        "a077e868-fd97-445b-a0a3-44979d0b4610",
+        "f0e4ec1d-2639-4d41-8f3c-f1b04d6794ac",
+        "46214ea6-a793-419b-a7b1-1dc5e0ed2399",
+        "04e802f8-8562-40b9-9482-e5341f9c9480",
+        "3f1933a8-ea08-4232-9f4b-e44ca5923ba8"
+      ]
+    },
+    {
+      "id": "karate_public/sparse/offload",
+      "workload": "karate_public",
+      "backend": "sparse",
+      "policy": "offload",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 16.87010000750888,
+      "run_medians_ms": [
+        16.87010000750888,
+        15.844600013224408,
+        19.330700000864454,
+        16.358100008801557,
+        17.07689999602735
+      ],
+      "ci95_ms": [
+        15.844600013224408,
+        19.330700000864454
+      ],
+      "iqr_ms": [
+        16.358100008801557,
+        17.07689999602735
+      ],
+      "peak_allocated_bytes": 67329024,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 128000,
+      "host_offload_payload_peak_bytes": 135712,
+      "to_host_bytes_per_step": 135712,
+      "host_rss_peak_bytes": 4036075520,
+      "structural_bytes": 4920,
+      "setup_ms": 9.653000000980683,
+      "conversion_ms": 1.851699998951517,
+      "cold_step_ms": 17.52370000758674,
+      "forward_gpu_ms": 5.540895938873291,
+      "backward_gpu_ms": 10.902591705322266,
+      "optimizer_gpu_ms": 0.4283519983291626,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:9",
+        "results/benchmark/repeat_1.jsonl:37",
+        "results/benchmark/repeat_2.jsonl:25",
+        "results/benchmark/repeat_3.jsonl:48",
+        "results/benchmark/repeat_4.jsonl:53"
+      ],
+      "raw_run_ids": [
+        "2215eaa8-34ee-4696-923f-ef13efe4e724",
+        "241f1def-6887-4bff-bbe1-f9009da4d10e",
+        "cb40674c-94c6-4021-a60f-6e6ae28a7e2a",
+        "93334f7d-d77d-4a8d-b089-3d5533808de5",
+        "2fdbd69b-56e0-46b0-ac4d-7e43a195dce9"
+      ]
+    },
+    {
+      "id": "karate_public/sparse/resident",
+      "workload": "karate_public",
+      "backend": "sparse",
+      "policy": "resident",
+      "spec": {
+        "name": "karate_public",
+        "family": "karate",
+        "nodes": 34,
+        "degree": 0,
+        "width": 64,
+        "depth": 4,
+        "split": "public-reference"
+      },
+      "graph_hash": "9d39c4215db560ecb17a20da006fc0c450e52c4c7067969f714ea8e7c4d64277",
+      "step_ms": 12.843500007875264,
+      "run_medians_ms": [
+        12.843500007875264,
+        13.343699989491142,
+        12.193599992315285,
+        11.068000007071532,
+        13.953200003015809
+      ],
+      "ci95_ms": [
+        11.068000007071532,
+        13.953200003015809
+      ],
+      "iqr_ms": [
+        12.193599992315285,
+        13.343699989491142
+      ],
+      "peak_allocated_bytes": 67315712,
+      "peak_reserved_bytes": 69206016,
+      "extra_working_set_bytes": 114688,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 3991506944,
+      "structural_bytes": 4920,
+      "setup_ms": 11.086800004704855,
+      "conversion_ms": 2.2350999934133142,
+      "cold_step_ms": 13.684599995031022,
+      "forward_gpu_ms": 3.715424060821533,
+      "backward_gpu_ms": 8.253120422363281,
+      "optimizer_gpu_ms": 0.4489920139312744,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:29",
+        "results/benchmark/repeat_1.jsonl:23",
+        "results/benchmark/repeat_2.jsonl:18",
+        "results/benchmark/repeat_3.jsonl:13",
+        "results/benchmark/repeat_4.jsonl:47"
+      ],
+      "raw_run_ids": [
+        "be743c71-d5f6-4367-b33e-2222d3b18325",
+        "32d284fe-3b2a-41c4-9975-7ffe288ca39e",
+        "d92c1bc6-109c-4d22-98fe-0f2b5893ad2b",
+        "35204bdd-ed73-4527-9751-a305c320cf26",
+        "e200d82f-40c4-4d49-9f58-7e8e8c89bf8c"
+      ]
+    },
+    {
+      "id": "ring_holdout/cuda_csr/checkpoint",
+      "workload": "ring_holdout",
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 16.099399988888763,
+      "run_medians_ms": [
+        18.512199996621348,
+        18.43409999855794,
+        15.967200000886805,
+        14.966699993237853,
+        16.099399988888763
+      ],
+      "ci95_ms": [
+        14.966699993237853,
+        18.512199996621348
+      ],
+      "iqr_ms": [
+        15.967200000886805,
+        18.43409999855794
+      ],
+      "peak_allocated_bytes": 108421632,
+      "peak_reserved_bytes": 134217728,
+      "extra_working_set_bytes": 31491072,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037484544,
+      "structural_bytes": 3342352,
+      "setup_ms": 34.933400005684234,
+      "conversion_ms": 4.193799992208369,
+      "cold_step_ms": 16.799500008346513,
+      "forward_gpu_ms": 5.335296154022217,
+      "backward_gpu_ms": 10.340383529663086,
+      "optimizer_gpu_ms": 0.5186560153961182,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:30",
+        "results/benchmark/repeat_1.jsonl:7",
+        "results/benchmark/repeat_2.jsonl:50",
+        "results/benchmark/repeat_3.jsonl:6",
+        "results/benchmark/repeat_4.jsonl:22"
+      ],
+      "raw_run_ids": [
+        "f41ece16-4cf3-4a4c-9864-0e7a125d8c35",
+        "0ee5b8cb-370b-47d5-a327-0301f599977c",
+        "54303fee-bc3d-4ede-b517-c91f4cee954c",
+        "055275df-ce8b-4224-85bc-621454ccfea0",
+        "2c4742d7-be95-4a27-9952-d75d1f38955c"
+      ]
+    },
+    {
+      "id": "ring_holdout/cuda_csr/offload",
+      "workload": "ring_holdout",
+      "backend": "cuda_csr",
+      "policy": "offload",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 15.537900006165728,
+      "run_medians_ms": [
+        13.911200003349222,
+        29.798399991705082,
+        30.56769999966491,
+        15.537900006165728,
+        12.91220000712201
+      ],
+      "ci95_ms": [
+        12.91220000712201,
+        30.56769999966491
+      ],
+      "iqr_ms": [
+        13.911200003349222,
+        29.798399991705082
+      ],
+      "peak_allocated_bytes": 95805952,
+      "peak_reserved_bytes": 113246208,
+      "extra_working_set_bytes": 18875392,
+      "host_offload_payload_peak_bytes": 31805440,
+      "to_host_bytes_per_step": 31805440,
+      "host_rss_peak_bytes": 4036100096,
+      "structural_bytes": 3342352,
+      "setup_ms": 30.80680000130087,
+      "conversion_ms": 3.420900000492111,
+      "cold_step_ms": 15.295699995476753,
+      "forward_gpu_ms": 6.918208122253418,
+      "backward_gpu_ms": 7.2600321769714355,
+      "optimizer_gpu_ms": 0.38339200615882874,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:44",
+        "results/benchmark/repeat_1.jsonl:11",
+        "results/benchmark/repeat_2.jsonl:14",
+        "results/benchmark/repeat_3.jsonl:53",
+        "results/benchmark/repeat_4.jsonl:8"
+      ],
+      "raw_run_ids": [
+        "e444919c-f6cb-4bfc-9f4a-f3e1f22bf516",
+        "adc2624d-ba14-4762-b262-356e6055de89",
+        "114f94b6-116d-4460-8c3d-502a560dc849",
+        "77d9f554-d05a-43e5-99ba-154fcd332a75",
+        "5807fd22-d168-443e-bf62-1fbb977d3d94"
+      ]
+    },
+    {
+      "id": "ring_holdout/cuda_csr/resident",
+      "workload": "ring_holdout",
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 7.117300003301352,
+      "run_medians_ms": [
+        7.055699999909848,
+        7.117300003301352,
+        8.002000002306886,
+        7.596800001920201,
+        6.791499996325001
+      ],
+      "ci95_ms": [
+        6.791499996325001,
+        8.002000002306886
+      ],
+      "iqr_ms": [
+        7.055699999909848,
+        7.596800001920201
+      ],
+      "peak_allocated_bytes": 124150272,
+      "peak_reserved_bytes": 134217728,
+      "extra_working_set_bytes": 47219712,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4038418432,
+      "structural_bytes": 3342352,
+      "setup_ms": 24.07620000303723,
+      "conversion_ms": 3.3438999962527305,
+      "cold_step_ms": 11.56099999207072,
+      "forward_gpu_ms": 3.2619519233703613,
+      "backward_gpu_ms": 3.8170559406280518,
+      "optimizer_gpu_ms": 0.37376001477241516,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:42",
+        "results/benchmark/repeat_1.jsonl:32",
+        "results/benchmark/repeat_2.jsonl:47",
+        "results/benchmark/repeat_3.jsonl:28",
+        "results/benchmark/repeat_4.jsonl:5"
+      ],
+      "raw_run_ids": [
+        "e7852331-612a-40f6-be08-8851f142d89a",
+        "2d594943-c2c7-492e-a43c-67de3616ce76",
+        "7e9134ce-a721-43ce-a1be-8fc6fc1f4810",
+        "806a5f57-1e10-4d78-b04e-45a9716f2a54",
+        "6cbdeb3d-9833-4e6f-a817-9c65102d2961"
+      ]
+    },
+    {
+      "id": "ring_holdout/index_add/checkpoint",
+      "workload": "ring_holdout",
+      "backend": "index_add",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 21.441499993670732,
+      "run_medians_ms": [
+        21.200200004386716,
+        21.12610000767745,
+        21.441499993670732,
+        21.471200001542456,
+        23.85399999911897
+      ],
+      "ci95_ms": [
+        21.12610000767745,
+        23.85399999911897
+      ],
+      "iqr_ms": [
+        21.200200004386716,
+        21.471200001542456
+      ],
+      "peak_allocated_bytes": 175922688,
+      "peak_reserved_bytes": 226492416,
+      "extra_working_set_bytes": 100697088,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037488640,
+      "structural_bytes": 1638400,
+      "setup_ms": 18.25549999193754,
+      "conversion_ms": 0.6067000067560002,
+      "cold_step_ms": 26.10959998855833,
+      "forward_gpu_ms": 6.4022722244262695,
+      "backward_gpu_ms": 14.321824073791504,
+      "optimizer_gpu_ms": 0.4394879937171936,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:10",
+        "results/benchmark/repeat_1.jsonl:13",
+        "results/benchmark/repeat_2.jsonl:57",
+        "results/benchmark/repeat_3.jsonl:50",
+        "results/benchmark/repeat_4.jsonl:54"
+      ],
+      "raw_run_ids": [
+        "4c624612-4e87-4c16-97ef-55426000b05c",
+        "fbab2fbc-43f4-45ba-b100-ade1045afe83",
+        "ce1ec280-52ec-4dc8-89ea-0678242b4a40",
+        "8643d0e4-2b3c-4400-8efe-a69a3b9705f1",
+        "521a6bcf-392d-4ccd-b5b0-c122ca51f220"
+      ]
+    },
+    {
+      "id": "ring_holdout/index_add/offload",
+      "workload": "ring_holdout",
+      "backend": "index_add",
+      "policy": "offload",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 36.05979999701958,
+      "run_medians_ms": [
+        36.118400006671436,
+        43.51269999460783,
+        34.07049999805167,
+        36.05979999701958,
+        30.834300006972626
+      ],
+      "ci95_ms": [
+        30.834300006972626,
+        43.51269999460783
+      ],
+      "iqr_ms": [
+        34.07049999805167,
+        36.118400006671436
+      ],
+      "peak_allocated_bytes": 160310784,
+      "peak_reserved_bytes": 188743680,
+      "extra_working_set_bytes": 85085184,
+      "host_offload_payload_peak_bytes": 220549120,
+      "to_host_bytes_per_step": 220549120,
+      "host_rss_peak_bytes": 4051341312,
+      "structural_bytes": 1638400,
+      "setup_ms": 24.63780000107363,
+      "conversion_ms": 0.7865000079618767,
+      "cold_step_ms": 39.338700007647276,
+      "forward_gpu_ms": 17.839231491088867,
+      "backward_gpu_ms": 17.093664169311523,
+      "optimizer_gpu_ms": 0.009279999881982803,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:17",
+        "results/benchmark/repeat_1.jsonl:43",
+        "results/benchmark/repeat_2.jsonl:29",
+        "results/benchmark/repeat_3.jsonl:12",
+        "results/benchmark/repeat_4.jsonl:49"
+      ],
+      "raw_run_ids": [
+        "2ef49014-ac02-4c84-ba54-184bf0fd52ee",
+        "cad0120c-b5d2-42e0-b8d8-e218f7469f05",
+        "4344501c-ae03-42d0-92f7-4db365e59e0e",
+        "82e65db1-017f-4dcc-b018-c4cbd5248098",
+        "e033a90c-64cb-489b-bd93-f0f038e05d14"
+      ]
+    },
+    {
+      "id": "ring_holdout/index_add/resident",
+      "workload": "ring_holdout",
+      "backend": "index_add",
+      "policy": "resident",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 10.120400009327568,
+      "run_medians_ms": [
+        11.629600005107932,
+        9.340300006442703,
+        8.886099996743724,
+        10.120400009327568,
+        11.569199996301904
+      ],
+      "ci95_ms": [
+        8.886099996743724,
+        11.629600005107932
+      ],
+      "iqr_ms": [
+        9.340300006442703,
+        11.569199996301904
+      ],
+      "peak_allocated_bytes": 339500544,
+      "peak_reserved_bytes": 360710144,
+      "extra_working_set_bytes": 264274944,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051570688,
+      "structural_bytes": 1638400,
+      "setup_ms": 47.53220001293812,
+      "conversion_ms": 0.920400008908473,
+      "cold_step_ms": 15.636500000255182,
+      "forward_gpu_ms": 3.4863040447235107,
+      "backward_gpu_ms": 5.784927845001221,
+      "optimizer_gpu_ms": 0.43779200315475464,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:40",
+        "results/benchmark/repeat_1.jsonl:54",
+        "results/benchmark/repeat_2.jsonl:8",
+        "results/benchmark/repeat_3.jsonl:8",
+        "results/benchmark/repeat_4.jsonl:43"
+      ],
+      "raw_run_ids": [
+        "6f1b2cdd-4c3a-4a69-a33b-e0e18e343057",
+        "86e3d207-8113-4737-894a-a9e06aef9e7b",
+        "65c80068-69ed-4b6b-81e4-af385f6ccce2",
+        "4800dd15-e4f9-4cd3-89ff-fd783cb46913",
+        "ce8c5060-0890-4201-be25-ab3e5d4c8da9"
+      ]
+    },
+    {
+      "id": "ring_holdout/pyg/checkpoint",
+      "workload": "ring_holdout",
+      "backend": "pyg",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 20.37949999794364,
+      "run_medians_ms": [
+        20.37949999794364,
+        20.974700004444458,
+        22.912600004929118,
+        19.429499996476807,
+        19.37069999985397
+      ],
+      "ci95_ms": [
+        19.37069999985397,
+        22.912600004929118
+      ],
+      "iqr_ms": [
+        19.429499996476807,
+        20.974700004444458
+      ],
+      "peak_allocated_bytes": 143416832,
+      "peak_reserved_bytes": 167772160,
+      "extra_working_set_bytes": 68191232,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4033740800,
+      "structural_bytes": 1638400,
+      "setup_ms": 19.400200006202795,
+      "conversion_ms": 0.9159000037470832,
+      "cold_step_ms": 22.94660000188742,
+      "forward_gpu_ms": 6.779327869415283,
+      "backward_gpu_ms": 13.073887825012207,
+      "optimizer_gpu_ms": 0.4734080135822296,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:46",
+        "results/benchmark/repeat_1.jsonl:21",
+        "results/benchmark/repeat_2.jsonl:22",
+        "results/benchmark/repeat_3.jsonl:55",
+        "results/benchmark/repeat_4.jsonl:28"
+      ],
+      "raw_run_ids": [
+        "b6b24774-6cb2-4910-b606-fb429d63667c",
+        "4b98985e-6b64-446e-ad1c-e6786aab5654",
+        "343e7509-1ebf-4b47-b352-12a0ac64258d",
+        "ac6b8a56-1d04-4cdf-ae6e-b06a57b95fc0",
+        "f7ab810d-24ef-4b85-b963-8090262656c7"
+      ]
+    },
+    {
+      "id": "ring_holdout/pyg/offload",
+      "workload": "ring_holdout",
+      "backend": "pyg",
+      "policy": "offload",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 17.583900000317954,
+      "run_medians_ms": [
+        18.507700006011873,
+        17.765099997632205,
+        16.271399988909252,
+        15.922999999020249,
+        17.583900000317954
+      ],
+      "ci95_ms": [
+        15.922999999020249,
+        18.507700006011873
+      ],
+      "iqr_ms": [
+        16.271399988909252,
+        17.765099997632205
+      ],
+      "peak_allocated_bytes": 127804928,
+      "peak_reserved_bytes": 167772160,
+      "extra_working_set_bytes": 52579328,
+      "host_offload_payload_peak_bytes": 31805440,
+      "to_host_bytes_per_step": 31805440,
+      "host_rss_peak_bytes": 4037070848,
+      "structural_bytes": 1638400,
+      "setup_ms": 23.72810000088066,
+      "conversion_ms": 0.9856000106083229,
+      "cold_step_ms": 20.697500003734604,
+      "forward_gpu_ms": 7.830848217010498,
+      "backward_gpu_ms": 9.14025592803955,
+      "optimizer_gpu_ms": 0.48655998706817627,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:36",
+        "results/benchmark/repeat_1.jsonl:42",
+        "results/benchmark/repeat_2.jsonl:40",
+        "results/benchmark/repeat_3.jsonl:44",
+        "results/benchmark/repeat_4.jsonl:37"
+      ],
+      "raw_run_ids": [
+        "48007647-cfa4-4142-9fa8-37fa3f7ddfcd",
+        "fc8e905f-8397-44e7-98af-0a2ac849258e",
+        "e9368c11-b7b8-45bb-ac07-e5a1b0308311",
+        "184f3229-7312-44ac-b9ec-f75e2e7403ee",
+        "f50e00cd-143d-4bd1-9464-42acf51e20fb"
+      ]
+    },
+    {
+      "id": "ring_holdout/pyg/resident",
+      "workload": "ring_holdout",
+      "backend": "pyg",
+      "policy": "resident",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 9.874800001853146,
+      "run_medians_ms": [
+        10.90009999461472,
+        9.567800007062033,
+        10.653599994839169,
+        9.802000000490807,
+        9.874800001853146
+      ],
+      "ci95_ms": [
+        9.567800007062033,
+        10.90009999461472
+      ],
+      "iqr_ms": [
+        9.802000000490807,
+        10.653599994839169
+      ],
+      "peak_allocated_bytes": 155999744,
+      "peak_reserved_bytes": 167772160,
+      "extra_working_set_bytes": 80774144,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051333120,
+      "structural_bytes": 1638400,
+      "setup_ms": 23.199899995233864,
+      "conversion_ms": 0.7486000104108825,
+      "cold_step_ms": 13.88500000757631,
+      "forward_gpu_ms": 3.6069118976593018,
+      "backward_gpu_ms": 5.634592056274414,
+      "optimizer_gpu_ms": 0.47571200132369995,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:43",
+        "results/benchmark/repeat_1.jsonl:60",
+        "results/benchmark/repeat_2.jsonl:34",
+        "results/benchmark/repeat_3.jsonl:19",
+        "results/benchmark/repeat_4.jsonl:16"
+      ],
+      "raw_run_ids": [
+        "2efa08dc-ce99-4783-964b-ac59f3ee6ecf",
+        "7d6cc8e9-a209-4cb8-8ed8-6ff08826f7e4",
+        "3069c147-9259-4d90-964d-758b2f43d8f1",
+        "72845717-7815-43c6-ac07-a628f9a5d953",
+        "bb3f4c45-c177-4106-8303-4fad60f1e60f"
+      ]
+    },
+    {
+      "id": "ring_holdout/sparse/checkpoint",
+      "workload": "ring_holdout",
+      "backend": "sparse",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 27.06900000339374,
+      "run_medians_ms": [
+        30.222199988202192,
+        24.471800003084354,
+        23.793500004103407,
+        27.905999988433905,
+        27.06900000339374
+      ],
+      "ci95_ms": [
+        23.793500004103407,
+        30.222199988202192
+      ],
+      "iqr_ms": [
+        24.471800003084354,
+        27.905999988433905
+      ],
+      "peak_allocated_bytes": 111862784,
+      "peak_reserved_bytes": 136314880,
+      "extra_working_set_bytes": 34605056,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051570688,
+      "structural_bytes": 2883592,
+      "setup_ms": 44.897200001287274,
+      "conversion_ms": 3.134200000204146,
+      "cold_step_ms": 28.959300005226396,
+      "forward_gpu_ms": 5.908927917480469,
+      "backward_gpu_ms": 20.101919174194336,
+      "optimizer_gpu_ms": 0.4633600115776062,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:21",
+        "results/benchmark/repeat_1.jsonl:52",
+        "results/benchmark/repeat_2.jsonl:3",
+        "results/benchmark/repeat_3.jsonl:38",
+        "results/benchmark/repeat_4.jsonl:48"
+      ],
+      "raw_run_ids": [
+        "5fe3894a-0420-4b25-862e-c0a71e70859e",
+        "d3b6030e-b484-401e-9643-2124c45074c4",
+        "83290824-a12e-458e-810d-5d993efb3d87",
+        "fc522b5c-7bd0-4534-a773-94f151009492",
+        "f0db9d7d-83de-466e-b491-7b09f5962b84"
+      ]
+    },
+    {
+      "id": "ring_holdout/sparse/offload",
+      "workload": "ring_holdout",
+      "backend": "sparse",
+      "policy": "offload",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 22.186499991221353,
+      "run_medians_ms": [
+        20.812399990973063,
+        19.509299992932938,
+        22.186499991221353,
+        22.39990000089165,
+        22.80360000440851
+      ],
+      "ci95_ms": [
+        19.509299992932938,
+        22.80360000440851
+      ],
+      "iqr_ms": [
+        20.812399990973063,
+        22.39990000089165
+      ],
+      "peak_allocated_bytes": 96657408,
+      "peak_reserved_bytes": 115343360,
+      "extra_working_set_bytes": 19399680,
+      "host_offload_payload_peak_bytes": 31805440,
+      "to_host_bytes_per_step": 31805440,
+      "host_rss_peak_bytes": 4038418432,
+      "structural_bytes": 2883592,
+      "setup_ms": 25.05000001110602,
+      "conversion_ms": 4.019200001494028,
+      "cold_step_ms": 24.077699999907054,
+      "forward_gpu_ms": 6.195328235626221,
+      "backward_gpu_ms": 14.313759803771973,
+      "optimizer_gpu_ms": 0.47788798809051514,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:11",
+        "results/benchmark/repeat_1.jsonl:38",
+        "results/benchmark/repeat_2.jsonl:45",
+        "results/benchmark/repeat_3.jsonl:23",
+        "results/benchmark/repeat_4.jsonl:55"
+      ],
+      "raw_run_ids": [
+        "234e8fe9-b0be-4db0-91db-bbb2dc7efc68",
+        "69307a33-1fdf-4f90-b15d-a26f79208e50",
+        "c3b886cd-0ec8-4acb-84a9-9a929322257f",
+        "0e3bbe3f-0109-43c6-ace6-d33e751fec79",
+        "3d799323-1ed8-4a1c-a80b-b0243aa04867"
+      ]
+    },
+    {
+      "id": "ring_holdout/sparse/resident",
+      "workload": "ring_holdout",
+      "backend": "sparse",
+      "policy": "resident",
+      "spec": {
+        "name": "ring_holdout",
+        "family": "ring",
+        "nodes": 8192,
+        "degree": 12,
+        "width": 96,
+        "depth": 5,
+        "split": "holdout"
+      },
+      "graph_hash": "2df6ea8896023b2f9d202bba923f0ace815661be91744ecb050974ac69fa39cc",
+      "step_ms": 17.11470000736881,
+      "run_medians_ms": [
+        17.11470000736881,
+        15.023300002212636,
+        17.155699999420904,
+        21.330199990188703,
+        16.23219999601133
+      ],
+      "ci95_ms": [
+        15.023300002212636,
+        21.330199990188703
+      ],
+      "iqr_ms": [
+        16.23219999601133,
+        17.155699999420904
+      ],
+      "peak_allocated_bytes": 125001728,
+      "peak_reserved_bytes": 136314880,
+      "extra_working_set_bytes": 47744000,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037488640,
+      "structural_bytes": 2883592,
+      "setup_ms": 35.71100000408478,
+      "conversion_ms": 6.4362999983131886,
+      "cold_step_ms": 21.753299995907582,
+      "forward_gpu_ms": 3.749919891357422,
+      "backward_gpu_ms": 12.766079902648926,
+      "optimizer_gpu_ms": 0.4408319890499115,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:26",
+        "results/benchmark/repeat_1.jsonl:24",
+        "results/benchmark/repeat_2.jsonl:56",
+        "results/benchmark/repeat_3.jsonl:2",
+        "results/benchmark/repeat_4.jsonl:41"
+      ],
+      "raw_run_ids": [
+        "75f196c2-831a-4d49-b452-62cdbd279ec8",
+        "f7856921-3924-4a74-a2a7-32cf6f672051",
+        "80ca5449-7fdc-45a6-8e5e-7e8d2ebe78a7",
+        "7932b6da-9084-40c1-9d7d-8cc6a98bf97f",
+        "3511217e-d963-4493-907d-ebf762330b63"
+      ]
+    },
+    {
+      "id": "skew_train/cuda_csr/checkpoint",
+      "workload": "skew_train",
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 13.14549999369774,
+      "run_medians_ms": [
+        15.406800011987798,
+        12.742699997033924,
+        12.824499994167127,
+        14.590999999199994,
+        13.14549999369774
+      ],
+      "ci95_ms": [
+        12.742699997033924,
+        15.406800011987798
+      ],
+      "iqr_ms": [
+        12.824499994167127,
+        14.590999999199994
+      ],
+      "peak_allocated_bytes": 80924672,
+      "peak_reserved_bytes": 81788928,
+      "extra_working_set_bytes": 9454592,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 3990671360,
+      "structural_bytes": 2195472,
+      "setup_ms": 31.48200000578072,
+      "conversion_ms": 6.397000004653819,
+      "cold_step_ms": 20.960699999704957,
+      "forward_gpu_ms": 4.278143882751465,
+      "backward_gpu_ms": 8.29257583618164,
+      "optimizer_gpu_ms": 0.4357439875602722,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:33",
+        "results/benchmark/repeat_1.jsonl:33",
+        "results/benchmark/repeat_2.jsonl:11",
+        "results/benchmark/repeat_3.jsonl:11",
+        "results/benchmark/repeat_4.jsonl:24"
+      ],
+      "raw_run_ids": [
+        "2a984400-3579-4a69-a19b-6d5519d6ddf8",
+        "0e31c6d5-cecd-4f1f-ae3a-c95be744310f",
+        "357f43a1-b5a8-4aff-9b5d-2d6cd034adf8",
+        "0ba71caf-3b71-4fe2-b2e1-aedfcb1f8ddf",
+        "e9302095-9402-4d94-a8e6-eb98164f7585"
+      ]
+    },
+    {
+      "id": "skew_train/cuda_csr/offload",
+      "workload": "skew_train",
+      "backend": "cuda_csr",
+      "policy": "offload",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 9.841399994911626,
+      "run_medians_ms": [
+        12.4461999948835,
+        9.602199992514215,
+        11.16619999811519,
+        9.789299991098233,
+        9.841399994911626
+      ],
+      "ci95_ms": [
+        9.602199992514215,
+        12.4461999948835
+      ],
+      "iqr_ms": [
+        9.789299991098233,
+        11.16619999811519
+      ],
+      "peak_allocated_bytes": 77762560,
+      "peak_reserved_bytes": 79691776,
+      "extra_working_set_bytes": 6292480,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 4036546560,
+      "structural_bytes": 2195472,
+      "setup_ms": 19.492399995215237,
+      "conversion_ms": 4.170899992459454,
+      "cold_step_ms": 15.41229999565985,
+      "forward_gpu_ms": 4.707968235015869,
+      "backward_gpu_ms": 4.740416049957275,
+      "optimizer_gpu_ms": 0.42396798729896545,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:57",
+        "results/benchmark/repeat_1.jsonl:15",
+        "results/benchmark/repeat_2.jsonl:21",
+        "results/benchmark/repeat_3.jsonl:42",
+        "results/benchmark/repeat_4.jsonl:21"
+      ],
+      "raw_run_ids": [
+        "b756d20c-8411-410e-bc44-910ec87c3a57",
+        "625c2395-bb22-463a-b670-7ba024a82689",
+        "707fbf6a-5646-4375-ade1-f72e3f51dc53",
+        "5871820b-c9e5-4161-8091-7f163ef3d591",
+        "5c67409c-51c1-4cd1-bccf-414a1e30e975"
+      ]
+    },
+    {
+      "id": "skew_train/cuda_csr/resident",
+      "workload": "skew_train",
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 6.332100005238317,
+      "run_medians_ms": [
+        8.031799996388145,
+        5.515400000149384,
+        6.332100005238317,
+        6.185399994137697,
+        6.808399994042702
+      ],
+      "ci95_ms": [
+        5.515400000149384,
+        8.031799996388145
+      ],
+      "iqr_ms": [
+        6.185399994137697,
+        6.808399994042702
+      ],
+      "peak_allocated_bytes": 85118976,
+      "peak_reserved_bytes": 85983232,
+      "extra_working_set_bytes": 13648896,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4034879488,
+      "structural_bytes": 2195472,
+      "setup_ms": 21.41230000415817,
+      "conversion_ms": 4.41149999096524,
+      "cold_step_ms": 10.540599992964417,
+      "forward_gpu_ms": 2.3310720920562744,
+      "backward_gpu_ms": 3.401952028274536,
+      "optimizer_gpu_ms": 0.40748798847198486,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:49",
+        "results/benchmark/repeat_1.jsonl:31",
+        "results/benchmark/repeat_2.jsonl:43",
+        "results/benchmark/repeat_3.jsonl:10",
+        "results/benchmark/repeat_4.jsonl:23"
+      ],
+      "raw_run_ids": [
+        "73ec0f79-44ea-4455-8fcf-9e82e084a5aa",
+        "919f4ca9-ab5e-47f2-84d4-6b46a3bd5520",
+        "6aa142d5-d46b-495e-8a65-7bc74aba4a2c",
+        "d0b1cc64-62a4-49cb-b74e-e74542f07968",
+        "4f4edc4c-5edf-4fd4-a327-1005cef1c3a1"
+      ]
+    },
+    {
+      "id": "skew_train/index_add/checkpoint",
+      "workload": "skew_train",
+      "backend": "index_add",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 17.103299993323162,
+      "run_medians_ms": [
+        17.82749999256339,
+        16.68709999648854,
+        17.103299993323162,
+        17.015899997204542,
+        17.630099988309667
+      ],
+      "ci95_ms": [
+        16.68709999648854,
+        17.82749999256339
+      ],
+      "iqr_ms": [
+        17.015899997204542,
+        17.630099988309667
+      ],
+      "peak_allocated_bytes": 111266816,
+      "peak_reserved_bytes": 115343360,
+      "extra_working_set_bytes": 40911872,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 2427809792,
+      "structural_bytes": 1081344,
+      "setup_ms": 15.991200009011663,
+      "conversion_ms": 1.2190999987069517,
+      "cold_step_ms": 30.99060000386089,
+      "forward_gpu_ms": 4.899328231811523,
+      "backward_gpu_ms": 11.580320358276367,
+      "optimizer_gpu_ms": 0.4171200096607208,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:15",
+        "results/benchmark/repeat_1.jsonl:29",
+        "results/benchmark/repeat_2.jsonl:30",
+        "results/benchmark/repeat_3.jsonl:20",
+        "results/benchmark/repeat_4.jsonl:12"
+      ],
+      "raw_run_ids": [
+        "d577f6e7-9883-4d14-ac74-fbc3d34aef63",
+        "93d18951-1b1c-4ca0-bb43-af111ed2776b",
+        "22822d9d-a7de-4c2c-b998-2d99497b5e0c",
+        "54897e23-9041-4f4a-8eee-9e25fe53a10f",
+        "981976c8-f31c-4d6b-a150-860d0d0d9a5a"
+      ]
+    },
+    {
+      "id": "skew_train/index_add/offload",
+      "workload": "skew_train",
+      "backend": "index_add",
+      "policy": "offload",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 19.854800004395656,
+      "run_medians_ms": [
+        19.854800004395656,
+        17.939099998329766,
+        14.323099996545352,
+        30.33520000462886,
+        31.129800001508556
+      ],
+      "ci95_ms": [
+        14.323099996545352,
+        31.129800001508556
+      ],
+      "iqr_ms": [
+        17.939099998329766,
+        30.33520000462886
+      ],
+      "peak_allocated_bytes": 107106816,
+      "peak_reserved_bytes": 111149056,
+      "extra_working_set_bytes": 36751872,
+      "host_offload_payload_peak_bytes": 75628544,
+      "to_host_bytes_per_step": 75628544,
+      "host_rss_peak_bytes": 3991302144,
+      "structural_bytes": 1081344,
+      "setup_ms": 16.885400007595308,
+      "conversion_ms": 0.970900000538677,
+      "cold_step_ms": 68.21509999281261,
+      "forward_gpu_ms": 9.908160209655762,
+      "backward_gpu_ms": 9.619935989379883,
+      "optimizer_gpu_ms": 0.046911999583244324,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:58",
+        "results/benchmark/repeat_1.jsonl:3",
+        "results/benchmark/repeat_2.jsonl:24",
+        "results/benchmark/repeat_3.jsonl:4",
+        "results/benchmark/repeat_4.jsonl:15"
+      ],
+      "raw_run_ids": [
+        "aa575be3-ad3f-46a8-b66a-6ed0504a0207",
+        "77ad114c-dd38-40a0-b507-4f704ef50f11",
+        "aa95701e-f658-455d-86e3-5a901f1e69b8",
+        "4a507fc5-772b-43af-be69-879e3e80e5db",
+        "d4a5f866-e3d8-4f17-b97f-fc337404d09f"
+      ]
+    },
+    {
+      "id": "skew_train/index_add/resident",
+      "workload": "skew_train",
+      "backend": "index_add",
+      "policy": "resident",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 9.664100012741983,
+      "run_medians_ms": [
+        12.11360000888817,
+        9.252200004993938,
+        12.105100002372637,
+        9.664100012741983,
+        8.67409999773372
+      ],
+      "ci95_ms": [
+        8.67409999773372,
+        12.11360000888817
+      ],
+      "iqr_ms": [
+        9.252200004993938,
+        12.105100002372637
+      ],
+      "peak_allocated_bytes": 164744192,
+      "peak_reserved_bytes": 169869312,
+      "extra_working_set_bytes": 94389248,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4038418432,
+      "structural_bytes": 1081344,
+      "setup_ms": 18.056600005365908,
+      "conversion_ms": 1.2349000026006252,
+      "cold_step_ms": 20.11800000036601,
+      "forward_gpu_ms": 2.8156800270080566,
+      "backward_gpu_ms": 5.650432109832764,
+      "optimizer_gpu_ms": 0.39155200123786926,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:16",
+        "results/benchmark/repeat_1.jsonl:20",
+        "results/benchmark/repeat_2.jsonl:48",
+        "results/benchmark/repeat_3.jsonl:52",
+        "results/benchmark/repeat_4.jsonl:17"
+      ],
+      "raw_run_ids": [
+        "176bb9db-cad3-4d29-9a64-b14922bc5f33",
+        "0c669d01-4e7e-47b3-94dc-2a3c89392375",
+        "a737a027-e9d7-4fb2-8ef4-9fad02b81e86",
+        "8e0dec5b-e4d0-4a51-896e-afadd9e881a6",
+        "3084a9cf-c8d2-4b8c-88b9-a593ebbfa9c5"
+      ]
+    },
+    {
+      "id": "skew_train/pyg/checkpoint",
+      "workload": "skew_train",
+      "backend": "pyg",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 17.705900012515485,
+      "run_medians_ms": [
+        18.802899998263456,
+        17.705900012515485,
+        18.06139999825973,
+        16.610799997579306,
+        17.053999996278435
+      ],
+      "ci95_ms": [
+        16.610799997579306,
+        18.802899998263456
+      ],
+      "iqr_ms": [
+        17.053999996278435,
+        18.06139999825973
+      ],
+      "peak_allocated_bytes": 97655296,
+      "peak_reserved_bytes": 119537664,
+      "extra_working_set_bytes": 27300352,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037070848,
+      "structural_bytes": 1081344,
+      "setup_ms": 15.383699996164069,
+      "conversion_ms": 1.0641999979270622,
+      "cold_step_ms": 18.769799993606284,
+      "forward_gpu_ms": 5.186016082763672,
+      "backward_gpu_ms": 11.577055931091309,
+      "optimizer_gpu_ms": 0.4513919949531555,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:31",
+        "results/benchmark/repeat_1.jsonl:14",
+        "results/benchmark/repeat_2.jsonl:10",
+        "results/benchmark/repeat_3.jsonl:45",
+        "results/benchmark/repeat_4.jsonl:32"
+      ],
+      "raw_run_ids": [
+        "5f94a9b7-3b46-4bf9-a09f-76647893a044",
+        "de6ac79b-ea65-4812-88f1-57fe63113f55",
+        "f92e586d-9461-478d-958a-22f4ff70dc35",
+        "7189d729-0779-4881-a15b-230581d4808b",
+        "10312f7d-bae1-4f37-9af0-5a04f02b12cc"
+      ]
+    },
+    {
+      "id": "skew_train/pyg/offload",
+      "workload": "skew_train",
+      "backend": "pyg",
+      "policy": "offload",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 12.657200000830926,
+      "run_medians_ms": [
+        13.800700005958788,
+        12.452099996153265,
+        12.119000006350689,
+        12.657200000830926,
+        12.932900004670955
+      ],
+      "ci95_ms": [
+        12.119000006350689,
+        13.800700005958788
+      ],
+      "iqr_ms": [
+        12.452099996153265,
+        12.932900004670955
+      ],
+      "peak_allocated_bytes": 93495296,
+      "peak_reserved_bytes": 115343360,
+      "extra_working_set_bytes": 23140352,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 4054650880,
+      "structural_bytes": 1081344,
+      "setup_ms": 15.606899993144907,
+      "conversion_ms": 0.7837000011932105,
+      "cold_step_ms": 16.611099999863654,
+      "forward_gpu_ms": 5.492640018463135,
+      "backward_gpu_ms": 6.586719989776611,
+      "optimizer_gpu_ms": 0.43881601095199585,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:27",
+        "results/benchmark/repeat_1.jsonl:51",
+        "results/benchmark/repeat_2.jsonl:60",
+        "results/benchmark/repeat_3.jsonl:34",
+        "results/benchmark/repeat_4.jsonl:4"
+      ],
+      "raw_run_ids": [
+        "8f16ddcf-8f56-4509-bd1f-d677e924a8bd",
+        "cf89bd84-d002-45a6-899e-9b130ec05708",
+        "c1777aee-8724-48d2-88fe-cc1cb163a93e",
+        "dab4f6e0-29d4-4db1-b380-8761225e6bc7",
+        "17f30936-c9ed-4e29-a2b9-606bb23959b2"
+      ]
+    },
+    {
+      "id": "skew_train/pyg/resident",
+      "workload": "skew_train",
+      "backend": "pyg",
+      "policy": "resident",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 9.045399987371638,
+      "run_medians_ms": [
+        9.510599993518554,
+        8.621900007710792,
+        9.886500003631227,
+        9.045399987371638,
+        8.465699997032061
+      ],
+      "ci95_ms": [
+        8.465699997032061,
+        9.886500003631227
+      ],
+      "iqr_ms": [
+        8.621900007710792,
+        9.510599993518554
+      ],
+      "peak_allocated_bytes": 100801024,
+      "peak_reserved_bytes": 123731968,
+      "extra_working_set_bytes": 30446080,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037070848,
+      "structural_bytes": 1081344,
+      "setup_ms": 13.066300001810305,
+      "conversion_ms": 0.6929999944986776,
+      "cold_step_ms": 11.751099998946302,
+      "forward_gpu_ms": 3.186784029006958,
+      "backward_gpu_ms": 5.0957441329956055,
+      "optimizer_gpu_ms": 0.46320000290870667,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:51",
+        "results/benchmark/repeat_1.jsonl:26",
+        "results/benchmark/repeat_2.jsonl:23",
+        "results/benchmark/repeat_3.jsonl:46",
+        "results/benchmark/repeat_4.jsonl:13"
+      ],
+      "raw_run_ids": [
+        "1b052a15-1ef0-4106-b7c5-d7867443035f",
+        "91180ef2-828a-4282-911c-6af578c99cec",
+        "e3b6f9ce-00f3-4e85-bf4d-c9b9075e544a",
+        "e0a91e89-760b-400e-b47c-0fe11e8f2de7",
+        "d8f88f11-fe9a-4c18-ab80-91002838429c"
+      ]
+    },
+    {
+      "id": "skew_train/sparse/checkpoint",
+      "workload": "skew_train",
+      "backend": "sparse",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 21.701799996662885,
+      "run_medians_ms": [
+        20.92860000266228,
+        21.701799996662885,
+        24.123499999404885,
+        20.97650000359863,
+        22.21300000383053
+      ],
+      "ci95_ms": [
+        20.92860000266228,
+        24.123499999404885
+      ],
+      "iqr_ms": [
+        20.97650000359863,
+        22.21300000383053
+      ],
+      "peak_allocated_bytes": 83132928,
+      "peak_reserved_bytes": 85983232,
+      "extra_working_set_bytes": 11477504,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037238784,
+      "structural_bytes": 1874416,
+      "setup_ms": 23.398399993311614,
+      "conversion_ms": 4.481299998587929,
+      "cold_step_ms": 24.190100011765026,
+      "forward_gpu_ms": 4.873760223388672,
+      "backward_gpu_ms": 15.859999656677246,
+      "optimizer_gpu_ms": 0.45718398690223694,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:8",
+        "results/benchmark/repeat_1.jsonl:36",
+        "results/benchmark/repeat_2.jsonl:44",
+        "results/benchmark/repeat_3.jsonl:37",
+        "results/benchmark/repeat_4.jsonl:29"
+      ],
+      "raw_run_ids": [
+        "5934fa17-9ade-4261-a26f-a5a4e5e0419c",
+        "195aa9e2-d706-4a78-acfc-989af29a7dcc",
+        "dcf49b34-b410-4faa-a75c-bfdaaecda765",
+        "a22fd5fc-cd7d-42e4-bc4a-51073b36059c",
+        "c3aa3de6-df1a-43d9-80fe-171e65a72c55"
+      ]
+    },
+    {
+      "id": "skew_train/sparse/offload",
+      "workload": "skew_train",
+      "backend": "sparse",
+      "policy": "offload",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 16.952399993897416,
+      "run_medians_ms": [
+        17.826299997977912,
+        16.952399993897416,
+        17.190699989441782,
+        16.112199999042787,
+        16.329100006259978
+      ],
+      "ci95_ms": [
+        16.112199999042787,
+        17.826299997977912
+      ],
+      "iqr_ms": [
+        16.329100006259978,
+        17.190699989441782
+      ],
+      "peak_allocated_bytes": 78972928,
+      "peak_reserved_bytes": 81788928,
+      "extra_working_set_bytes": 7317504,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 4051046400,
+      "structural_bytes": 1874416,
+      "setup_ms": 50.413899996783584,
+      "conversion_ms": 4.440900011104532,
+      "cold_step_ms": 20.414599988725968,
+      "forward_gpu_ms": 5.063007831573486,
+      "backward_gpu_ms": 11.36729621887207,
+      "optimizer_gpu_ms": 0.4383679926395416,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:7",
+        "results/benchmark/repeat_1.jsonl:48",
+        "results/benchmark/repeat_2.jsonl:7",
+        "results/benchmark/repeat_3.jsonl:29",
+        "results/benchmark/repeat_4.jsonl:39"
+      ],
+      "raw_run_ids": [
+        "9da1f83e-60b8-425f-83d6-c168093364e7",
+        "19cd93a7-4c0e-4c49-a0e9-feb567eb25f7",
+        "b6aa1359-8faa-4aa7-9f30-2ed8ed76c552",
+        "9e015631-517c-4f2c-89ef-07875bd6fa84",
+        "dd2219a2-132a-4414-8c30-0098781127a9"
+      ]
+    },
+    {
+      "id": "skew_train/sparse/resident",
+      "workload": "skew_train",
+      "backend": "sparse",
+      "policy": "resident",
+      "spec": {
+        "name": "skew_train",
+        "family": "skewed",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "2aafc9a3428b3817cb1204fcbef475e9238b4756dc98d55662b0642b96a528a1",
+      "step_ms": 13.517700004740618,
+      "run_medians_ms": [
+        13.82190000731498,
+        13.490099998307414,
+        13.015599994105287,
+        13.517700004740618,
+        17.386299994541332
+      ],
+      "ci95_ms": [
+        13.015599994105287,
+        17.386299994541332
+      ],
+      "iqr_ms": [
+        13.490099998307414,
+        13.82190000731498
+      ],
+      "peak_allocated_bytes": 86278656,
+      "peak_reserved_bytes": 88080384,
+      "extra_working_set_bytes": 14623232,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4048900096,
+      "structural_bytes": 1874416,
+      "setup_ms": 46.82200000388548,
+      "conversion_ms": 7.762600012938492,
+      "cold_step_ms": 17.66670000506565,
+      "forward_gpu_ms": 2.7948479652404785,
+      "backward_gpu_ms": 9.979424476623535,
+      "optimizer_gpu_ms": 0.4084480106830597,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:41",
+        "results/benchmark/repeat_1.jsonl:58",
+        "results/benchmark/repeat_2.jsonl:6",
+        "results/benchmark/repeat_3.jsonl:56",
+        "results/benchmark/repeat_4.jsonl:56"
+      ],
+      "raw_run_ids": [
+        "2b15250d-6487-4118-9d70-fe533f6cec51",
+        "a9079370-db81-4eb7-82dc-882132d572cc",
+        "5ef71a37-41e3-469e-b5e1-b9c100f74e61",
+        "24b5ee4b-0bf6-4cdb-a3ad-6612224bf81a",
+        "a18fcd61-7543-4475-8fe6-cdb90c422488"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/cuda_csr/checkpoint",
+      "workload": "uniform_large_holdout",
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 18.747900001471862,
+      "run_medians_ms": [
+        20.178199993097223,
+        20.103599992580712,
+        18.391999998129904,
+        18.237799988128245,
+        18.747900001471862
+      ],
+      "ci95_ms": [
+        18.237799988128245,
+        20.178199993097223
+      ],
+      "iqr_ms": [
+        18.391999998129904,
+        20.103599992580712
+      ],
+      "peak_allocated_bytes": 162165760,
+      "peak_reserved_bytes": 174063616,
+      "extra_working_set_bytes": 69272576,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 3990958080,
+      "structural_bytes": 12976144,
+      "setup_ms": 61.105999993742444,
+      "conversion_ms": 5.931599996984005,
+      "cold_step_ms": 19.58510000258684,
+      "forward_gpu_ms": 6.287712097167969,
+      "backward_gpu_ms": 11.836895942687988,
+      "optimizer_gpu_ms": 0.4530239999294281,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:50",
+        "results/benchmark/repeat_1.jsonl:12",
+        "results/benchmark/repeat_2.jsonl:19",
+        "results/benchmark/repeat_3.jsonl:21",
+        "results/benchmark/repeat_4.jsonl:51"
+      ],
+      "raw_run_ids": [
+        "eebd65a2-c660-4ef7-8c75-6e92cb83b0b2",
+        "df896014-38f7-4035-8f96-38c58326fd61",
+        "ff6c0696-f25b-4694-bfc4-c71ab7f68860",
+        "df758c07-a31d-43bf-a672-864072e15825",
+        "5fb4ee3a-bcb1-4b6c-bf16-e7beade166c2"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/cuda_csr/offload",
+      "workload": "uniform_large_holdout",
+      "backend": "cuda_csr",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 16.1186000041198,
+      "run_medians_ms": [
+        14.999899998656474,
+        18.74590000079479,
+        16.034400003263727,
+        17.77770000626333,
+        16.1186000041198
+      ],
+      "ci95_ms": [
+        14.999899998656474,
+        18.74590000079479
+      ],
+      "iqr_ms": [
+        16.034400003263727,
+        17.77770000626333
+      ],
+      "peak_allocated_bytes": 130642944,
+      "peak_reserved_bytes": 153092096,
+      "extra_working_set_bytes": 37749760,
+      "host_offload_payload_peak_bytes": 76111872,
+      "to_host_bytes_per_step": 76111872,
+      "host_rss_peak_bytes": 4036022272,
+      "structural_bytes": 12976144,
+      "setup_ms": 54.94719999842346,
+      "conversion_ms": 4.28769999416545,
+      "cold_step_ms": 19.235700005083345,
+      "forward_gpu_ms": 8.404095649719238,
+      "backward_gpu_ms": 8.217599868774414,
+      "optimizer_gpu_ms": 0.013279999606311321,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:32",
+        "results/benchmark/repeat_1.jsonl:5",
+        "results/benchmark/repeat_2.jsonl:2",
+        "results/benchmark/repeat_3.jsonl:40",
+        "results/benchmark/repeat_4.jsonl:45"
+      ],
+      "raw_run_ids": [
+        "c1880687-ea9c-4389-af73-f131362dd64d",
+        "73d149d4-b57c-4ff2-9658-f2905a0c763c",
+        "02eaa44b-65f2-41b4-9e07-f26b9caac377",
+        "848ba109-21a8-43af-8875-1ab9bcace3cd",
+        "ab451117-2aff-4f67-9e86-54629e80a2ed"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/cuda_csr/resident",
+      "workload": "uniform_large_holdout",
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 7.704100004048087,
+      "run_medians_ms": [
+        10.500000003958121,
+        7.011800000327639,
+        9.657400005380623,
+        7.660600007511675,
+        7.704100004048087
+      ],
+      "ci95_ms": [
+        7.011800000327639,
+        10.500000003958121
+      ],
+      "iqr_ms": [
+        7.660600007511675,
+        9.657400005380623
+      ],
+      "peak_allocated_bytes": 199914496,
+      "peak_reserved_bytes": 216006656,
+      "extra_working_set_bytes": 107021312,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4054454272,
+      "structural_bytes": 12976144,
+      "setup_ms": 52.89140000240877,
+      "conversion_ms": 3.9410000026691705,
+      "cold_step_ms": 10.891999991144985,
+      "forward_gpu_ms": 3.042623996734619,
+      "backward_gpu_ms": 3.8545920848846436,
+      "optimizer_gpu_ms": 0.4527040123939514,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:22",
+        "results/benchmark/repeat_1.jsonl:50",
+        "results/benchmark/repeat_2.jsonl:28",
+        "results/benchmark/repeat_3.jsonl:31",
+        "results/benchmark/repeat_4.jsonl:60"
+      ],
+      "raw_run_ids": [
+        "79a2762f-2442-41c8-b725-ddc2024042ff",
+        "85dad9c7-7910-422b-bf47-dd6a05e85008",
+        "c39c58b3-3db0-4e8c-aba8-49fc83cc890c",
+        "a9f0d862-1eed-4dd5-b01a-307bbaa0014e",
+        "724c701f-5c26-47a3-8e74-ef3521a82969"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/index_add/checkpoint",
+      "workload": "uniform_large_holdout",
+      "backend": "index_add",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 38.68140000849962,
+      "run_medians_ms": [
+        38.585599992075004,
+        38.7161999969976,
+        38.68140000849962,
+        38.606999994954094,
+        40.32090000691824
+      ],
+      "ci95_ms": [
+        38.585599992075004,
+        40.32090000691824
+      ],
+      "iqr_ms": [
+        38.606999994954094,
+        38.7161999969976
+      ],
+      "peak_allocated_bytes": 445018112,
+      "peak_reserved_bytes": 606076928,
+      "extra_working_set_bytes": 358679552,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051324928,
+      "structural_bytes": 6422528,
+      "setup_ms": 55.03980000503361,
+      "conversion_ms": 0.7738999993307516,
+      "cold_step_ms": 42.15419999673031,
+      "forward_gpu_ms": 13.108223915100098,
+      "backward_gpu_ms": 25.429119110107422,
+      "optimizer_gpu_ms": 0.013311999849975109,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:23",
+        "results/benchmark/repeat_1.jsonl:56",
+        "results/benchmark/repeat_2.jsonl:54",
+        "results/benchmark/repeat_3.jsonl:47",
+        "results/benchmark/repeat_4.jsonl:35"
+      ],
+      "raw_run_ids": [
+        "cfdf53f0-369a-4d74-959f-db56ac3aadb0",
+        "3350f50a-c209-4090-9a92-b781d6eff713",
+        "a099861c-61b5-4909-b216-2a88e8ae098c",
+        "7f930c52-204f-4166-b3a8-63da237a0063",
+        "99f90e83-6a1a-4c1c-8b5a-8fcd7ea01984"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/index_add/offload",
+      "workload": "uniform_large_holdout",
+      "backend": "index_add",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 127.81130000075791,
+      "run_medians_ms": [
+        119.10369999532122,
+        119.52039999596309,
+        134.7743999940576,
+        132.52729999658186,
+        127.81130000075791
+      ],
+      "ci95_ms": [
+        119.10369999532122,
+        134.7743999940576
+      ],
+      "iqr_ms": [
+        119.52039999596309,
+        132.52729999658186
+      ],
+      "peak_allocated_bytes": 407390720,
+      "peak_reserved_bytes": 434110464,
+      "extra_working_set_bytes": 321052160,
+      "host_offload_payload_peak_bytes": 982081536,
+      "to_host_bytes_per_step": 982081536,
+      "host_rss_peak_bytes": 4037500928,
+      "structural_bytes": 6422528,
+      "setup_ms": 46.639399995910935,
+      "conversion_ms": 0.9367000020574778,
+      "cold_step_ms": 142.37539999885485,
+      "forward_gpu_ms": 67.50601959228516,
+      "backward_gpu_ms": 59.33158493041992,
+      "optimizer_gpu_ms": 0.013311999849975109,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:25",
+        "results/benchmark/repeat_1.jsonl:41",
+        "results/benchmark/repeat_2.jsonl:42",
+        "results/benchmark/repeat_3.jsonl:26",
+        "results/benchmark/repeat_4.jsonl:57"
+      ],
+      "raw_run_ids": [
+        "7303dff9-b185-4d1d-954b-3839faeaa63d",
+        "1ba66c3a-ff9e-4cbf-91af-a3297789a203",
+        "7a856143-980c-48a6-abf6-0a0f912a90b8",
+        "b00ffc27-7f45-487d-aec1-3ee721f7c4ce",
+        "de08cc05-e9ff-40db-a9e3-3e75b8a23d59"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/index_add/resident",
+      "workload": "uniform_large_holdout",
+      "backend": "index_add",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 26.38170000864193,
+      "run_medians_ms": [
+        26.564699990558438,
+        26.174900005571544,
+        26.380499999504536,
+        26.38170000864193,
+        26.440299989189953
+      ],
+      "ci95_ms": [
+        26.174900005571544,
+        26.564699990558438
+      ],
+      "iqr_ms": [
+        26.380499999504536,
+        26.440299989189953
+      ],
+      "peak_allocated_bytes": 1231450112,
+      "peak_reserved_bytes": 1272971264,
+      "extra_working_set_bytes": 1145111552,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4037500928,
+      "structural_bytes": 6422528,
+      "setup_ms": 57.61200000415556,
+      "conversion_ms": 0.7577000069431961,
+      "cold_step_ms": 36.613499993109144,
+      "forward_gpu_ms": 12.500767707824707,
+      "backward_gpu_ms": 13.690879821777344,
+      "optimizer_gpu_ms": 0.013311999849975109,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:38",
+        "results/benchmark/repeat_1.jsonl:40",
+        "results/benchmark/repeat_2.jsonl:49",
+        "results/benchmark/repeat_3.jsonl:18",
+        "results/benchmark/repeat_4.jsonl:19"
+      ],
+      "raw_run_ids": [
+        "32ecfcd5-c475-4e3b-be2e-a19a274415ca",
+        "7e258518-7634-436e-a753-b251e779c893",
+        "327debf9-7943-487f-a825-e07644cef149",
+        "793131c1-1411-45e9-84bd-b514888c3713",
+        "8116b00d-39f2-47d2-9b09-cec0c37209e7"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/pyg/checkpoint",
+      "workload": "uniform_large_holdout",
+      "backend": "pyg",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 38.20790001191199,
+      "run_medians_ms": [
+        38.613400000031106,
+        37.9875000071479,
+        38.46739999426063,
+        38.16700000606943,
+        38.20790001191199
+      ],
+      "ci95_ms": [
+        37.9875000071479,
+        38.613400000031106
+      ],
+      "iqr_ms": [
+        38.16700000606943,
+        38.46739999426063
+      ],
+      "peak_allocated_bytes": 312990208,
+      "peak_reserved_bytes": 413138944,
+      "extra_working_set_bytes": 226651648,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051308544,
+      "structural_bytes": 6422528,
+      "setup_ms": 54.04160000034608,
+      "conversion_ms": 0.8232999971369281,
+      "cold_step_ms": 40.58010000153445,
+      "forward_gpu_ms": 12.8919038772583,
+      "backward_gpu_ms": 25.202720642089844,
+      "optimizer_gpu_ms": 0.013344000093638897,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:4",
+        "results/benchmark/repeat_1.jsonl:47",
+        "results/benchmark/repeat_2.jsonl:58",
+        "results/benchmark/repeat_3.jsonl:16",
+        "results/benchmark/repeat_4.jsonl:38"
+      ],
+      "raw_run_ids": [
+        "4fd79ff7-bc3e-4cfb-a2ea-e088471522a5",
+        "c1359714-8939-440b-ae85-7a5a830f39ad",
+        "4b5761d8-2628-439c-b568-f1c8c7b5d1dd",
+        "04ee7db3-c8ad-4161-8052-27b98d9bd142",
+        "4de7bdab-7c26-4f62-b87f-aea294befcba"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/pyg/offload",
+      "workload": "uniform_large_holdout",
+      "backend": "pyg",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 38.30440000456292,
+      "run_medians_ms": [
+        33.914800005732104,
+        38.30440000456292,
+        47.6695999968797,
+        36.69850000005681,
+        39.4592999946326
+      ],
+      "ci95_ms": [
+        33.914800005732104,
+        47.6695999968797
+      ],
+      "iqr_ms": [
+        36.69850000005681,
+        39.4592999946326
+      ],
+      "peak_allocated_bytes": 275362816,
+      "peak_reserved_bytes": 413138944,
+      "extra_working_set_bytes": 189024256,
+      "host_offload_payload_peak_bytes": 76111872,
+      "to_host_bytes_per_step": 76111872,
+      "host_rss_peak_bytes": 4037488640,
+      "structural_bytes": 6422528,
+      "setup_ms": 49.602600003709085,
+      "conversion_ms": 0.9003000013763085,
+      "cold_step_ms": 43.26320000109263,
+      "forward_gpu_ms": 18.18467140197754,
+      "backward_gpu_ms": 19.83283233642578,
+      "optimizer_gpu_ms": 0.013311999849975109,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:35",
+        "results/benchmark/repeat_1.jsonl:17",
+        "results/benchmark/repeat_2.jsonl:59",
+        "results/benchmark/repeat_3.jsonl:58",
+        "results/benchmark/repeat_4.jsonl:31"
+      ],
+      "raw_run_ids": [
+        "790b5406-8404-4f6c-8910-a787b10e8460",
+        "4f162ec8-80a0-44df-87f5-639f3daa6b7f",
+        "31ed1a42-a3bc-44b8-926d-9e9283f2090a",
+        "14f3ee20-d770-4058-9367-dd6b0abaf60c",
+        "ac4145eb-2575-460d-b19a-6a2c639b51e1"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/pyg/resident",
+      "workload": "uniform_large_holdout",
+      "backend": "pyg",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 25.944400011212565,
+      "run_medians_ms": [
+        25.944400011212565,
+        25.74569999706,
+        25.906599999871105,
+        26.06960000412073,
+        25.944799999706447
+      ],
+      "ci95_ms": [
+        25.74569999706,
+        26.06960000412073
+      ],
+      "iqr_ms": [
+        25.906599999871105,
+        25.944799999706447
+      ],
+      "peak_allocated_bytes": 344447488,
+      "peak_reserved_bytes": 413138944,
+      "extra_working_set_bytes": 258108928,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036018176,
+      "structural_bytes": 6422528,
+      "setup_ms": 50.6496000016341,
+      "conversion_ms": 0.9898999996948987,
+      "cold_step_ms": 28.89349999895785,
+      "forward_gpu_ms": 12.323871612548828,
+      "backward_gpu_ms": 13.547552108764648,
+      "optimizer_gpu_ms": 0.013311999849975109,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:59",
+        "results/benchmark/repeat_1.jsonl:4",
+        "results/benchmark/repeat_2.jsonl:20",
+        "results/benchmark/repeat_3.jsonl:30",
+        "results/benchmark/repeat_4.jsonl:34"
+      ],
+      "raw_run_ids": [
+        "51b5d469-7a9e-4bbd-a09b-d69c635a9db6",
+        "1de71ae9-5283-4b25-856b-bf6166ac7a0b",
+        "ba6a6df0-09b2-42cb-8ebd-ce3c45618d55",
+        "822a0725-b8a8-48c0-8df2-3e6870f1360a",
+        "635f7c96-76df-43f5-9bc2-056547269142"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/sparse/checkpoint",
+      "workload": "uniform_large_holdout",
+      "backend": "sparse",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 33.09599999920465,
+      "run_medians_ms": [
+        34.913300012703985,
+        28.464000002713874,
+        33.09599999920465,
+        33.455400000093505,
+        29.58329999819398
+      ],
+      "ci95_ms": [
+        28.464000002713874,
+        34.913300012703985
+      ],
+      "iqr_ms": [
+        29.58329999819398,
+        33.455400000093505
+      ],
+      "peak_allocated_bytes": 176942592,
+      "peak_reserved_bytes": 195035136,
+      "extra_working_set_bytes": 82613760,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051308544,
+      "structural_bytes": 11268720,
+      "setup_ms": 64.68689999019261,
+      "conversion_ms": 4.088799993041903,
+      "cold_step_ms": 33.51940000720788,
+      "forward_gpu_ms": 7.26259183883667,
+      "backward_gpu_ms": 24.454784393310547,
+      "optimizer_gpu_ms": 0.49167999625205994,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:20",
+        "results/benchmark/repeat_1.jsonl:49",
+        "results/benchmark/repeat_2.jsonl:52",
+        "results/benchmark/repeat_3.jsonl:59",
+        "results/benchmark/repeat_4.jsonl:10"
+      ],
+      "raw_run_ids": [
+        "3fdf35bb-33ea-42e7-b444-fb724f2633a9",
+        "5c8b5278-8b88-48c4-9ab2-7caf64c0221c",
+        "362e4f6b-7c5e-4bc3-9f18-5984a6441b12",
+        "3b8440cf-4d6c-4f2f-abb2-33a4020d40f8",
+        "46d11db9-477b-4ca3-bc25-a2f30b8d9408"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/sparse/offload",
+      "workload": "uniform_large_holdout",
+      "backend": "sparse",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 25.83230000163894,
+      "run_medians_ms": [
+        25.83230000163894,
+        24.11959999881219,
+        25.69569999468513,
+        27.21919999748934,
+        26.741000008769333
+      ],
+      "ci95_ms": [
+        24.11959999881219,
+        27.21919999748934
+      ],
+      "iqr_ms": [
+        25.69569999468513,
+        26.741000008769333
+      ],
+      "peak_allocated_bytes": 139319296,
+      "peak_reserved_bytes": 153092096,
+      "extra_working_set_bytes": 44990464,
+      "host_offload_payload_peak_bytes": 76111872,
+      "to_host_bytes_per_step": 76111872,
+      "host_rss_peak_bytes": 4036009984,
+      "structural_bytes": 11268720,
+      "setup_ms": 57.10419999377336,
+      "conversion_ms": 4.329100003815256,
+      "cold_step_ms": 30.67860000010114,
+      "forward_gpu_ms": 8.005951881408691,
+      "backward_gpu_ms": 17.786848068237305,
+      "optimizer_gpu_ms": 0.24822400510311127,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:52",
+        "results/benchmark/repeat_1.jsonl:35",
+        "results/benchmark/repeat_2.jsonl:38",
+        "results/benchmark/repeat_3.jsonl:27",
+        "results/benchmark/repeat_4.jsonl:52"
+      ],
+      "raw_run_ids": [
+        "4d712303-0678-480f-b8f6-6d83871160f0",
+        "d0dcb886-aabb-403f-9de6-dcd11341872c",
+        "25da81cc-ecdf-4aa3-b8e9-4113cc55b82f",
+        "d80d5665-e685-413a-95d1-3eac7aea2aeb",
+        "529484ed-9ce0-4be1-80bc-e843ce1d44e5"
+      ]
+    },
+    {
+      "id": "uniform_large_holdout/sparse/resident",
+      "workload": "uniform_large_holdout",
+      "backend": "sparse",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_large_holdout",
+        "family": "uniform",
+        "nodes": 16384,
+        "degree": 24,
+        "width": 96,
+        "depth": 6,
+        "split": "holdout"
+      },
+      "graph_hash": "c74fe65dbe9944d49beb617c62ac450100b1d685d9071ffd4090e34076e2638e",
+      "step_ms": 19.17929999763146,
+      "run_medians_ms": [
+        19.17929999763146,
+        16.75450000038836,
+        19.552600002498366,
+        19.706299994140863,
+        18.38809999753721
+      ],
+      "ci95_ms": [
+        16.75450000038836,
+        19.706299994140863
+      ],
+      "iqr_ms": [
+        18.38809999753721,
+        19.552600002498366
+      ],
+      "peak_allocated_bytes": 208403968,
+      "peak_reserved_bytes": 236978176,
+      "extra_working_set_bytes": 114075136,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4051333120,
+      "structural_bytes": 11268720,
+      "setup_ms": 55.99970000912435,
+      "conversion_ms": 5.937399997492321,
+      "cold_step_ms": 24.536500000976957,
+      "forward_gpu_ms": 3.7365119457244873,
+      "backward_gpu_ms": 14.642399787902832,
+      "optimizer_gpu_ms": 0.4748159945011139,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:54",
+        "results/benchmark/repeat_1.jsonl:59",
+        "results/benchmark/repeat_2.jsonl:32",
+        "results/benchmark/repeat_3.jsonl:39",
+        "results/benchmark/repeat_4.jsonl:26"
+      ],
+      "raw_run_ids": [
+        "152c2495-0527-4069-ac09-009dcef7b43a",
+        "37373e42-6095-4881-b8fa-b3aca3b0b33a",
+        "ed00cf29-497a-4394-b460-094ad5e3e6ee",
+        "a1f99e30-ba1d-4673-a4ee-c6f398abce97",
+        "afa3e65e-7da6-4e1f-9296-fbd322a73bb3"
+      ]
+    },
+    {
+      "id": "uniform_train/cuda_csr/checkpoint",
+      "workload": "uniform_train",
+      "backend": "cuda_csr",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 14.201400001184084,
+      "run_medians_ms": [
+        14.201400001184084,
+        15.005499997641891,
+        14.956199986045249,
+        12.448199995560572,
+        13.89890001155436
+      ],
+      "ci95_ms": [
+        12.448199995560572,
+        15.005499997641891
+      ],
+      "iqr_ms": [
+        13.89890001155436,
+        14.956199986045249
+      ],
+      "peak_allocated_bytes": 80924672,
+      "peak_reserved_bytes": 81788928,
+      "extra_working_set_bytes": 9454592,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 3988660224,
+      "structural_bytes": 2195472,
+      "setup_ms": 17.15090000652708,
+      "conversion_ms": 4.119899997022003,
+      "cold_step_ms": 16.69009999022819,
+      "forward_gpu_ms": 5.059072017669678,
+      "backward_gpu_ms": 8.71446418762207,
+      "optimizer_gpu_ms": 0.4315840005874634,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:47",
+        "results/benchmark/repeat_1.jsonl:16",
+        "results/benchmark/repeat_2.jsonl:37",
+        "results/benchmark/repeat_3.jsonl:17",
+        "results/benchmark/repeat_4.jsonl:9"
+      ],
+      "raw_run_ids": [
+        "10ccc173-603a-4667-b437-91d2842708e5",
+        "d13f5e9d-0385-4c39-a303-296fd46a6507",
+        "3d3c416b-1adf-4ee8-b21b-092ebe266029",
+        "09c88d25-21d6-4060-a698-79b6d39794a5",
+        "d3ac3fba-aee5-4b0d-9b0d-c0527727b5c6"
+      ]
+    },
+    {
+      "id": "uniform_train/cuda_csr/offload",
+      "workload": "uniform_train",
+      "backend": "cuda_csr",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 11.377799994079396,
+      "run_medians_ms": [
+        11.377799994079396,
+        10.993199990480207,
+        15.569199997116812,
+        12.440199992852286,
+        9.179500004393049
+      ],
+      "ci95_ms": [
+        9.179500004393049,
+        15.569199997116812
+      ],
+      "iqr_ms": [
+        10.993199990480207,
+        12.440199992852286
+      ],
+      "peak_allocated_bytes": 77762560,
+      "peak_reserved_bytes": 79691776,
+      "extra_working_set_bytes": 6292480,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 4033740800,
+      "structural_bytes": 2195472,
+      "setup_ms": 28.11640000436455,
+      "conversion_ms": 7.479399995645508,
+      "cold_step_ms": 12.940000000526197,
+      "forward_gpu_ms": 6.028863906860352,
+      "backward_gpu_ms": 5.287680149078369,
+      "optimizer_gpu_ms": 0.4548799991607666,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:18",
+        "results/benchmark/repeat_1.jsonl:1",
+        "results/benchmark/repeat_2.jsonl:16",
+        "results/benchmark/repeat_3.jsonl:54",
+        "results/benchmark/repeat_4.jsonl:2"
+      ],
+      "raw_run_ids": [
+        "9b3d417d-1789-4b5f-9314-8a521e174009",
+        "31cf9b78-7cca-4472-a5cd-f8937ce1d8a1",
+        "11ba7daa-8b75-41e2-92ce-7bec2e4dd44e",
+        "50982e03-0aee-4294-8192-de362e939bdb",
+        "8bf62dea-31a4-4810-9278-80d3896ef753"
+      ]
+    },
+    {
+      "id": "uniform_train/cuda_csr/resident",
+      "workload": "uniform_train",
+      "backend": "cuda_csr",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 6.376799996360205,
+      "run_medians_ms": [
+        7.267399996635504,
+        5.909200001042336,
+        6.543700001202524,
+        5.942999996477738,
+        6.376799996360205
+      ],
+      "ci95_ms": [
+        5.909200001042336,
+        7.267399996635504
+      ],
+      "iqr_ms": [
+        5.942999996477738,
+        6.543700001202524
+      ],
+      "peak_allocated_bytes": 85118976,
+      "peak_reserved_bytes": 85983232,
+      "extra_working_set_bytes": 13648896,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4049211392,
+      "structural_bytes": 2195472,
+      "setup_ms": 19.271600001957268,
+      "conversion_ms": 4.595499995048158,
+      "cold_step_ms": 12.267900005099364,
+      "forward_gpu_ms": 2.527712106704712,
+      "backward_gpu_ms": 3.3123199939727783,
+      "optimizer_gpu_ms": 0.40675199031829834,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:13",
+        "results/benchmark/repeat_1.jsonl:55",
+        "results/benchmark/repeat_2.jsonl:53",
+        "results/benchmark/repeat_3.jsonl:9",
+        "results/benchmark/repeat_4.jsonl:14"
+      ],
+      "raw_run_ids": [
+        "91f47252-1605-4c84-b9bb-fecf08855bbc",
+        "f1fcc918-b2a5-47f7-800c-c0b037f97705",
+        "d65d0b6e-9bca-491f-9df1-86a54078e5b7",
+        "21c3cef9-1de2-4ffe-89a4-2aae6077113f",
+        "f4704a10-557e-4fc7-8a34-401ba04eda0b"
+      ]
+    },
+    {
+      "id": "uniform_train/index_add/checkpoint",
+      "workload": "uniform_train",
+      "backend": "index_add",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 17.949799992493354,
+      "run_medians_ms": [
+        17.949799992493354,
+        16.86280001013074,
+        19.4476000033319,
+        17.517300002509728,
+        18.312699990929104
+      ],
+      "ci95_ms": [
+        16.86280001013074,
+        19.4476000033319
+      ],
+      "iqr_ms": [
+        17.517300002509728,
+        18.312699990929104
+      ],
+      "peak_allocated_bytes": 111266816,
+      "peak_reserved_bytes": 115343360,
+      "extra_working_set_bytes": 40911872,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 2167472128,
+      "structural_bytes": 1081344,
+      "setup_ms": 13.239399995654821,
+      "conversion_ms": 0.797400003648363,
+      "cold_step_ms": 21.353499992983416,
+      "forward_gpu_ms": 5.298463821411133,
+      "backward_gpu_ms": 11.812735557556152,
+      "optimizer_gpu_ms": 0.45311999320983887,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:12",
+        "results/benchmark/repeat_1.jsonl:9",
+        "results/benchmark/repeat_2.jsonl:26",
+        "results/benchmark/repeat_3.jsonl:1",
+        "results/benchmark/repeat_4.jsonl:42"
+      ],
+      "raw_run_ids": [
+        "15b86ddb-788f-4b80-a56b-229d7f3e6aa4",
+        "6039a4ec-540d-4da3-82be-eee18a4e1f93",
+        "d1a82a1f-414f-40c9-bede-a77b1bfb29b4",
+        "a9da34cb-4da0-45c2-9b21-16aea72ecfed",
+        "1e5f272d-1ca1-4822-93fe-98289d6dd508"
+      ]
+    },
+    {
+      "id": "uniform_train/index_add/offload",
+      "workload": "uniform_train",
+      "backend": "index_add",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 16.14599999447819,
+      "run_medians_ms": [
+        14.165400003548712,
+        16.235300005064346,
+        60.350100000505336,
+        15.277799990144558,
+        16.14599999447819
+      ],
+      "ci95_ms": [
+        14.165400003548712,
+        60.350100000505336
+      ],
+      "iqr_ms": [
+        15.277799990144558,
+        16.235300005064346
+      ],
+      "peak_allocated_bytes": 107106816,
+      "peak_reserved_bytes": 111149056,
+      "extra_working_set_bytes": 36751872,
+      "host_offload_payload_peak_bytes": 75628544,
+      "to_host_bytes_per_step": 75628544,
+      "host_rss_peak_bytes": 4035018752,
+      "structural_bytes": 1081344,
+      "setup_ms": 17.063499995856546,
+      "conversion_ms": 0.9923000034177676,
+      "cold_step_ms": 18.742200001724996,
+      "forward_gpu_ms": 7.66326379776001,
+      "backward_gpu_ms": 7.735040187835693,
+      "optimizer_gpu_ms": 0.03827200084924698,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:28",
+        "results/benchmark/repeat_1.jsonl:6",
+        "results/benchmark/repeat_2.jsonl:5",
+        "results/benchmark/repeat_3.jsonl:60",
+        "results/benchmark/repeat_4.jsonl:46"
+      ],
+      "raw_run_ids": [
+        "3912e358-8ca6-431b-8a03-618b0d82510b",
+        "151726fc-ffac-46b1-8ba3-6052dfa2338f",
+        "61847a62-b90d-43fe-af59-a48baa652840",
+        "c29b259e-ca2a-4360-9883-84e7ceed4e9c",
+        "8b5af0b5-03aa-4fab-8834-a60440d57d23"
+      ]
+    },
+    {
+      "id": "uniform_train/index_add/resident",
+      "workload": "uniform_train",
+      "backend": "index_add",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 8.645499998237938,
+      "run_medians_ms": [
+        9.851399998296984,
+        9.267099987482652,
+        8.460099998046644,
+        8.645499998237938,
+        7.972100007464178
+      ],
+      "ci95_ms": [
+        7.972100007464178,
+        9.851399998296984
+      ],
+      "iqr_ms": [
+        8.460099998046644,
+        9.267099987482652
+      ],
+      "peak_allocated_bytes": 164744192,
+      "peak_reserved_bytes": 169869312,
+      "extra_working_set_bytes": 94389248,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 2321657856,
+      "structural_bytes": 1081344,
+      "setup_ms": 16.722200001822785,
+      "conversion_ms": 1.1147000041091815,
+      "cold_step_ms": 16.483900006278418,
+      "forward_gpu_ms": 2.7517759799957275,
+      "backward_gpu_ms": 5.092703819274902,
+      "optimizer_gpu_ms": 0.4437440037727356,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:6",
+        "results/benchmark/repeat_1.jsonl:30",
+        "results/benchmark/repeat_2.jsonl:9",
+        "results/benchmark/repeat_3.jsonl:14",
+        "results/benchmark/repeat_4.jsonl:20"
+      ],
+      "raw_run_ids": [
+        "7d6039fc-bfd2-48bf-9be8-138f020bdc25",
+        "0119da4d-5c83-4b57-890a-743c5e87670e",
+        "c5d96b4d-2539-47a5-bed1-030403a5a36b",
+        "0572606f-cbbd-402d-9f30-f173bc3bce2b",
+        "6122dc04-0d99-4691-99f9-88c9f1cd2963"
+      ]
+    },
+    {
+      "id": "uniform_train/pyg/checkpoint",
+      "workload": "uniform_train",
+      "backend": "pyg",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 16.867700003786013,
+      "run_medians_ms": [
+        16.420100000686944,
+        16.076400002930313,
+        19.623100000899285,
+        16.982600005576387,
+        16.867700003786013
+      ],
+      "ci95_ms": [
+        16.076400002930313,
+        19.623100000899285
+      ],
+      "iqr_ms": [
+        16.420100000686944,
+        16.982600005576387
+      ],
+      "peak_allocated_bytes": 97655296,
+      "peak_reserved_bytes": 119537664,
+      "extra_working_set_bytes": 27300352,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036440064,
+      "structural_bytes": 1081344,
+      "setup_ms": 18.4298999956809,
+      "conversion_ms": 0.800199995865114,
+      "cold_step_ms": 23.52110001083929,
+      "forward_gpu_ms": 4.8480000495910645,
+      "backward_gpu_ms": 11.083328247070312,
+      "optimizer_gpu_ms": 0.4619840085506439,
+      "max_validation_abs_error": 2.384185791015625e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:3",
+        "results/benchmark/repeat_1.jsonl:39",
+        "results/benchmark/repeat_2.jsonl:55",
+        "results/benchmark/repeat_3.jsonl:33",
+        "results/benchmark/repeat_4.jsonl:11"
+      ],
+      "raw_run_ids": [
+        "eb2b3b73-3ed7-452f-932e-dbd21d8fd1f6",
+        "2dcb042f-495e-4b63-aa1a-c9c61f7395fc",
+        "f332e26d-622d-45e9-a61f-b467dc63612d",
+        "ec5b06dc-8775-42bb-88fb-6722d93d4c1d",
+        "f80ebf14-b7b7-435f-b9b6-04774a9db388"
+      ]
+    },
+    {
+      "id": "uniform_train/pyg/offload",
+      "workload": "uniform_train",
+      "backend": "pyg",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 14.332600010675378,
+      "run_medians_ms": [
+        14.332600010675378,
+        12.152499999501742,
+        13.286900008097291,
+        14.946700001019053,
+        16.548400002648123
+      ],
+      "ci95_ms": [
+        12.152499999501742,
+        16.548400002648123
+      ],
+      "iqr_ms": [
+        13.286900008097291,
+        14.946700001019053
+      ],
+      "peak_allocated_bytes": 93495296,
+      "peak_reserved_bytes": 115343360,
+      "extra_working_set_bytes": 23140352,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 4036886528,
+      "structural_bytes": 1081344,
+      "setup_ms": 27.68889999424573,
+      "conversion_ms": 0.6533999985549599,
+      "cold_step_ms": 15.26059999014251,
+      "forward_gpu_ms": 6.5654401779174805,
+      "backward_gpu_ms": 7.324960231781006,
+      "optimizer_gpu_ms": 0.48716801404953003,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:53",
+        "results/benchmark/repeat_1.jsonl:18",
+        "results/benchmark/repeat_2.jsonl:27",
+        "results/benchmark/repeat_3.jsonl:57",
+        "results/benchmark/repeat_4.jsonl:44"
+      ],
+      "raw_run_ids": [
+        "2e8c063e-f8a4-4af5-a42e-cd96a0fad6db",
+        "089939bf-61f6-43f0-a4d0-0a305c73e955",
+        "6a494145-e9d5-40c2-ad58-81c9de796a46",
+        "72c210d2-dcaf-475e-9fad-3ea00c417443",
+        "59bbb664-9a73-4bc6-aa2f-02cd0da86b46"
+      ]
+    },
+    {
+      "id": "uniform_train/pyg/resident",
+      "workload": "uniform_train",
+      "backend": "pyg",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 8.996000004117377,
+      "run_medians_ms": [
+        9.4913000066299,
+        8.996000004117377,
+        8.533699990948662,
+        8.392299991101027,
+        9.210699994582683
+      ],
+      "ci95_ms": [
+        8.392299991101027,
+        9.4913000066299
+      ],
+      "iqr_ms": [
+        8.533699990948662,
+        9.210699994582683
+      ],
+      "peak_allocated_bytes": 100801024,
+      "peak_reserved_bytes": 123731968,
+      "extra_working_set_bytes": 30446080,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4036546560,
+      "structural_bytes": 1081344,
+      "setup_ms": 18.184699991252273,
+      "conversion_ms": 1.0089999996125698,
+      "cold_step_ms": 15.519699998549186,
+      "forward_gpu_ms": 3.2428159713745117,
+      "backward_gpu_ms": 5.2387518882751465,
+      "optimizer_gpu_ms": 0.4259839951992035,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:48",
+        "results/benchmark/repeat_1.jsonl:10",
+        "results/benchmark/repeat_2.jsonl:13",
+        "results/benchmark/repeat_3.jsonl:35",
+        "results/benchmark/repeat_4.jsonl:50"
+      ],
+      "raw_run_ids": [
+        "df9e66b8-244b-4e9d-9077-973a39ed5662",
+        "77a4b19a-3a19-4527-a901-6ac59dc8b4f3",
+        "174253ce-8cf2-4789-be4b-abfd9601ac29",
+        "175d13de-027c-4d93-bebc-8c9d6047e920",
+        "93c120dd-4e6d-4c3f-9a2c-1a173923b43d"
+      ]
+    },
+    {
+      "id": "uniform_train/sparse/checkpoint",
+      "workload": "uniform_train",
+      "backend": "sparse",
+      "policy": "checkpoint",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 20.032000000355765,
+      "run_medians_ms": [
+        24.24730001075659,
+        19.879100000252947,
+        20.032000000355765,
+        20.022800003062002,
+        21.369000009144656
+      ],
+      "ci95_ms": [
+        19.879100000252947,
+        24.24730001075659
+      ],
+      "iqr_ms": [
+        20.022800003062002,
+        21.369000009144656
+      ],
+      "peak_allocated_bytes": 83310080,
+      "peak_reserved_bytes": 106954752,
+      "extra_working_set_bytes": 11612672,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 4050276352,
+      "structural_bytes": 1899148,
+      "setup_ms": 19.471399995381944,
+      "conversion_ms": 4.852799989748746,
+      "cold_step_ms": 33.21810001216363,
+      "forward_gpu_ms": 4.671328067779541,
+      "backward_gpu_ms": 15.016223907470703,
+      "optimizer_gpu_ms": 0.420415997505188,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:37",
+        "results/benchmark/repeat_1.jsonl:57",
+        "results/benchmark/repeat_2.jsonl:1",
+        "results/benchmark/repeat_3.jsonl:41",
+        "results/benchmark/repeat_4.jsonl:27"
+      ],
+      "raw_run_ids": [
+        "b04ab703-17d3-4f99-90a1-44bfb7372857",
+        "59f86183-a5c2-43f0-a532-86106e9dcbf2",
+        "0a8e3e40-7fff-4024-a262-9bc75a59dc7c",
+        "ea4e50df-2d92-41d6-9fd4-5e09a675b46a",
+        "6105ba66-11f8-424c-a5b5-a9f7318a23dc"
+      ]
+    },
+    {
+      "id": "uniform_train/sparse/offload",
+      "workload": "uniform_train",
+      "backend": "sparse",
+      "policy": "offload",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 17.465299999457784,
+      "run_medians_ms": [
+        17.465299999457784,
+        20.77009998902213,
+        16.168899994227104,
+        16.25709999643732,
+        17.747899997630157
+      ],
+      "ci95_ms": [
+        16.168899994227104,
+        20.77009998902213
+      ],
+      "iqr_ms": [
+        16.25709999643732,
+        17.747899997630157
+      ],
+      "peak_allocated_bytes": 79150080,
+      "peak_reserved_bytes": 102760448,
+      "extra_working_set_bytes": 7452672,
+      "host_offload_payload_peak_bytes": 8519680,
+      "to_host_bytes_per_step": 8519680,
+      "host_rss_peak_bytes": 2095988736,
+      "structural_bytes": 1899148,
+      "setup_ms": 25.846999997156672,
+      "conversion_ms": 8.44580000557471,
+      "cold_step_ms": 23.19839999836404,
+      "forward_gpu_ms": 4.999807834625244,
+      "backward_gpu_ms": 11.689824104309082,
+      "optimizer_gpu_ms": 0.436383992433548,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:14",
+        "results/benchmark/repeat_1.jsonl:2",
+        "results/benchmark/repeat_2.jsonl:4",
+        "results/benchmark/repeat_3.jsonl:3",
+        "results/benchmark/repeat_4.jsonl:40"
+      ],
+      "raw_run_ids": [
+        "d80c78f4-52b6-47f9-91f0-d5b4cc91fb4e",
+        "af0f1098-c50d-4b54-8610-4652eb879b14",
+        "a3abb92e-cb2b-47de-8610-b9b07b6d9ca6",
+        "6b8748a4-37cf-459c-b601-cc162cc72ed0",
+        "27cd358f-3fc8-4a3a-af40-d22ac70ab4a9"
+      ]
+    },
+    {
+      "id": "uniform_train/sparse/resident",
+      "workload": "uniform_train",
+      "backend": "sparse",
+      "policy": "resident",
+      "spec": {
+        "name": "uniform_train",
+        "family": "uniform",
+        "nodes": 4096,
+        "degree": 16,
+        "width": 64,
+        "depth": 4,
+        "split": "train"
+      },
+      "graph_hash": "f8f6d7c34317b31f30cac11b6c2625a7b7edbd7d3200d3abd9cdedd84b0d1d46",
+      "step_ms": 13.250699994387105,
+      "run_medians_ms": [
+        12.675999998464249,
+        13.247200011392124,
+        13.250699994387105,
+        14.722900014021434,
+        15.573099997709505
+      ],
+      "ci95_ms": [
+        12.675999998464249,
+        15.573099997709505
+      ],
+      "iqr_ms": [
+        13.247200011392124,
+        14.722900014021434
+      ],
+      "peak_allocated_bytes": 86455808,
+      "peak_reserved_bytes": 109051904,
+      "extra_working_set_bytes": 14758400,
+      "host_offload_payload_peak_bytes": 0,
+      "to_host_bytes_per_step": 0,
+      "host_rss_peak_bytes": 3989909504,
+      "structural_bytes": 1899148,
+      "setup_ms": 20.033099994179793,
+      "conversion_ms": 4.67600001138635,
+      "cold_step_ms": 21.086599997943267,
+      "forward_gpu_ms": 2.91923189163208,
+      "backward_gpu_ms": 9.749983787536621,
+      "optimizer_gpu_ms": 0.4469760060310364,
+      "max_validation_abs_error": 4.76837158203125e-07,
+      "numerical_valid": true,
+      "measured": true,
+      "raw_sources": [
+        "results/benchmark/repeat_0.jsonl:55",
+        "results/benchmark/repeat_1.jsonl:34",
+        "results/benchmark/repeat_2.jsonl:31",
+        "results/benchmark/repeat_3.jsonl:24",
+        "results/benchmark/repeat_4.jsonl:30"
+      ],
+      "raw_run_ids": [
+        "452b0c5c-03fd-4008-a573-eb38db1a8014",
+        "4b4d6ddc-6a6b-49ee-adfa-0da205ad8dd2",
+        "7c54cf6b-43d7-43f1-8523-519333444114",
+        "e24e05ce-5a28-49bf-a041-1c4d05fedc7f",
+        "3dd7308c-f04b-459f-88c7-a64f6e1391f2"
+      ]
+    }
+  ],
+  "rejected": [],
+  "case_comparisons": [
+    {
+      "workload": "karate_public",
+      "custom": "karate_public/cuda_csr/resident",
+      "best_library": "karate_public/index_add/resident",
+      "speedup_vs_best_library": 1.1785995305543473,
+      "speedup_vs_index_add": 1.1785995305543473,
+      "allocated_reduction_vs_best_library": 0.002511247505822878,
+      "library_conversion_ms": 0.374700000975281,
+      "custom_conversion_ms": 1.6614000051049516,
+      "library_step_ms": 8.388800008106045,
+      "custom_step_ms": 7.117599991033785,
+      "custom_setup_ms": 8.425500011071563,
+      "library_setup_ms": 6.971299997530878,
+      "break_even_reuse": 1.143958459731536
+    },
+    {
+      "workload": "ring_holdout",
+      "custom": "ring_holdout/cuda_csr/resident",
+      "best_library": "ring_holdout/pyg/resident",
+      "speedup_vs_best_library": 1.3874362465081884,
+      "speedup_vs_index_add": 1.4219437152618593,
+      "allocated_reduction_vs_best_library": 0.20416361708901265,
+      "library_conversion_ms": 0.7486000104108825,
+      "custom_conversion_ms": 3.3438999962527305,
+      "library_step_ms": 9.874800001853146,
+      "custom_step_ms": 7.117300003301352,
+      "custom_setup_ms": 24.07620000303723,
+      "library_setup_ms": 23.199899995233864,
+      "break_even_reuse": 0.31778785431136464
+    },
+    {
+      "workload": "skew_train",
+      "custom": "skew_train/cuda_csr/resident",
+      "best_library": "skew_train/pyg/resident",
+      "speedup_vs_best_library": 1.428499230885284,
+      "speedup_vs_index_add": 1.5262077359402446,
+      "allocated_reduction_vs_best_library": 0.1555742925786151,
+      "library_conversion_ms": 0.6929999944986776,
+      "custom_conversion_ms": 4.41149999096524,
+      "library_step_ms": 9.045399987371638,
+      "custom_step_ms": 6.332100005238317,
+      "custom_setup_ms": 21.41230000415817,
+      "library_setup_ms": 13.066300001810305,
+      "break_even_reuse": 3.0759591852375476
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "custom": "uniform_large_holdout/cuda_csr/resident",
+      "best_library": "uniform_large_holdout/sparse/resident",
+      "speedup_vs_best_library": 2.489492606216661,
+      "speedup_vs_index_add": 3.4243714379070593,
+      "allocated_reduction_vs_best_library": 0.04073565432305015,
+      "library_conversion_ms": 5.937399997492321,
+      "custom_conversion_ms": 3.9410000026691705,
+      "library_step_ms": 19.17929999763146,
+      "custom_step_ms": 7.704100004048087,
+      "custom_setup_ms": 52.89140000240877,
+      "library_setup_ms": 55.99970000912435,
+      "break_even_reuse": 0
+    },
+    {
+      "workload": "uniform_train",
+      "custom": "uniform_train/cuda_csr/resident",
+      "best_library": "uniform_train/index_add/resident",
+      "speedup_vs_best_library": 1.3557740564503633,
+      "speedup_vs_index_add": 1.3557740564503633,
+      "allocated_reduction_vs_best_library": 0.48332639247154763,
+      "library_conversion_ms": 1.1147000041091815,
+      "custom_conversion_ms": 4.595499995048158,
+      "library_step_ms": 8.645499998237938,
+      "custom_step_ms": 6.376799996360205,
+      "custom_setup_ms": 19.271600001957268,
+      "library_setup_ms": 16.722200001822785,
+      "break_even_reuse": 1.123727243806772
+    }
+  ],
+  "budget_comparisons": [
+    {
+      "workload": "karate_public",
+      "budget_bytes": 67359232,
+      "a": "karate_public/cuda_csr/resident",
+      "b": "karate_public/index_add/offload",
+      "independent": "karate_public/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "karate_public/cuda_csr/resident",
+      "sequential": "karate_public/cuda_csr/resident",
+      "independent_over_joint": 1.404967967764212,
+      "paired_ratio_ci95": [
+        1.2026773107940167,
+        1.6358463537819656
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "karate_public",
+      "budget_bytes": 67424512,
+      "a": "karate_public/cuda_csr/resident",
+      "b": "karate_public/index_add/offload",
+      "independent": "karate_public/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "karate_public/cuda_csr/resident",
+      "sequential": "karate_public/cuda_csr/resident",
+      "independent_over_joint": 1.404967967764212,
+      "paired_ratio_ci95": [
+        1.2026773107940167,
+        1.6358463537819656
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "karate_public",
+      "budget_bytes": 67485185,
+      "a": "karate_public/cuda_csr/resident",
+      "b": "karate_public/index_add/resident",
+      "independent": "karate_public/cuda_csr/resident",
+      "independent_feasible": true,
+      "joint": "karate_public/cuda_csr/resident",
+      "sequential": "karate_public/cuda_csr/resident",
+      "independent_over_joint": 1.0,
+      "paired_ratio_ci95": [
+        1.0,
+        1.0
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "ring_holdout",
+      "budget_bytes": 168116736,
+      "a": "ring_holdout/cuda_csr/resident",
+      "b": "ring_holdout/index_add/offload",
+      "independent": "ring_holdout/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "ring_holdout/cuda_csr/resident",
+      "sequential": "ring_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.1831171931713556,
+      "paired_ratio_ci95": [
+        1.9012294801014542,
+        4.186756210625255
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "ring_holdout",
+      "budget_bytes": 257711616,
+      "a": "ring_holdout/cuda_csr/resident",
+      "b": "ring_holdout/index_add/checkpoint",
+      "independent": "ring_holdout/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "ring_holdout/cuda_csr/resident",
+      "sequential": "ring_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.2620094672728523,
+      "paired_ratio_ci95": [
+        1.9701321595217465,
+        2.623722663500132
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "ring_holdout",
+      "budget_bytes": 339500545,
+      "a": "ring_holdout/cuda_csr/resident",
+      "b": "ring_holdout/index_add/resident",
+      "independent": "ring_holdout/cuda_csr/resident",
+      "independent_feasible": true,
+      "joint": "ring_holdout/cuda_csr/resident",
+      "sequential": "ring_holdout/cuda_csr/resident",
+      "independent_over_joint": 1.0,
+      "paired_ratio_ci95": [
+        1.0,
+        1.0
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "skew_train",
+      "budget_bytes": 109186816,
+      "a": "skew_train/cuda_csr/resident",
+      "b": "skew_train/index_add/offload",
+      "independent": "skew_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "skew_train/cuda_csr/resident",
+      "sequential": "skew_train/cuda_csr/resident",
+      "independent_over_joint": 1.5542079226118022,
+      "paired_ratio_ci95": [
+        1.4454791145530193,
+        1.7634276130948336
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "skew_train",
+      "budget_bytes": 138005504,
+      "a": "skew_train/cuda_csr/resident",
+      "b": "skew_train/index_add/checkpoint",
+      "independent": "skew_train/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "skew_train/cuda_csr/resident",
+      "sequential": "skew_train/cuda_csr/resident",
+      "independent_over_joint": 2.0760095359869464,
+      "paired_ratio_ci95": [
+        1.918225057759923,
+        2.358942026874386
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "skew_train",
+      "budget_bytes": 164744193,
+      "a": "skew_train/cuda_csr/resident",
+      "b": "skew_train/index_add/resident",
+      "independent": "skew_train/cuda_csr/resident",
+      "independent_feasible": true,
+      "joint": "skew_train/cuda_csr/resident",
+      "sequential": "skew_train/cuda_csr/resident",
+      "independent_over_joint": 1.0,
+      "paired_ratio_ci95": [
+        1.0,
+        1.0
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "budget_bytes": 426204416,
+      "a": "uniform_large_holdout/cuda_csr/resident",
+      "b": "uniform_large_holdout/index_add/offload",
+      "independent": "uniform_large_holdout/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_large_holdout/cuda_csr/resident",
+      "sequential": "uniform_large_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.092210640522624,
+      "paired_ratio_ci95": [
+        1.4285619040954336,
+        2.673478992543834
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "budget_bytes": 838234112,
+      "a": "uniform_large_holdout/cuda_csr/resident",
+      "b": "uniform_large_holdout/index_add/checkpoint",
+      "independent": "uniform_large_holdout/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "uniform_large_holdout/cuda_csr/resident",
+      "sequential": "uniform_large_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.4334964488546174,
+      "paired_ratio_ci95": [
+        1.9044463300559982,
+        2.8671097281213576
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "budget_bytes": 1231450113,
+      "a": "uniform_large_holdout/cuda_csr/resident",
+      "b": "uniform_large_holdout/index_add/resident",
+      "independent": "uniform_large_holdout/cuda_csr/resident",
+      "independent_feasible": true,
+      "joint": "uniform_large_holdout/cuda_csr/resident",
+      "sequential": "uniform_large_holdout/cuda_csr/resident",
+      "independent_over_joint": 1.0,
+      "paired_ratio_ci95": [
+        1.0,
+        1.0
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_train",
+      "budget_bytes": 109186816,
+      "a": "uniform_train/cuda_csr/resident",
+      "b": "uniform_train/index_add/offload",
+      "independent": "uniform_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_train/cuda_csr/resident",
+      "sequential": "uniform_train/cuda_csr/resident",
+      "independent_over_joint": 1.784249153270245,
+      "paired_ratio_ci95": [
+        1.439515118810781,
+        2.379265552249597
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_train",
+      "budget_bytes": 138005504,
+      "a": "uniform_train/cuda_csr/resident",
+      "b": "uniform_train/index_add/offload",
+      "independent": "uniform_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_train/cuda_csr/resident",
+      "sequential": "uniform_train/cuda_csr/resident",
+      "independent_over_joint": 1.784249153270245,
+      "paired_ratio_ci95": [
+        1.439515118810781,
+        2.379265552249597
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_train",
+      "budget_bytes": 164744193,
+      "a": "uniform_train/cuda_csr/resident",
+      "b": "uniform_train/index_add/resident",
+      "independent": "uniform_train/cuda_csr/resident",
+      "independent_feasible": true,
+      "joint": "uniform_train/cuda_csr/resident",
+      "sequential": "uniform_train/cuda_csr/resident",
+      "independent_over_joint": 1.0,
+      "paired_ratio_ci95": [
+        1.0,
+        1.0
+      ],
+      "sequential_equals_joint": true
+    }
+  ],
+  "interactions": [
+    {
+      "workload": "karate_public",
+      "policy": "checkpoint",
+      "interaction_ms": -2.4339999945368618,
+      "ci95_ms": [
+        -4.53219999326393,
+        -0.62600000819657
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "karate_public",
+      "policy": "offload",
+      "interaction_ms": -2.042699998128228,
+      "ci95_ms": [
+        -3.574200003640726,
+        -0.53190000471659
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "ring_holdout",
+      "policy": "checkpoint",
+      "interaction_ms": -2.9769000102533028,
+      "ci95_ms": [
+        -4.590199998347089,
+        1.8858999974327162
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "ring_holdout",
+      "policy": "offload",
+      "interaction_ms": -13.144399999873713,
+      "ci95_ms": [
+        -17.998299983446486,
+        -2.6187000039499253
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "skew_train",
+      "policy": "checkpoint",
+      "interaction_ms": 1.0538000205997378,
+      "ci95_ms": [
+        -2.6188999909209087,
+        1.661100031924434
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "skew_train",
+      "policy": "offload",
+      "interaction_ms": -4.600100000970997,
+      "ci95_ms": [
+        -19.422700002905913,
+        2.6160999987041578
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "policy": "checkpoint",
+      "interaction_ms": -2.3427000123774633,
+      "ci95_ms": [
+        -3.5663000162458047,
+        0.5505000008270144
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "policy": "offload",
+      "interaction_ms": -92.95650001149625,
+      "ci95_ms": [
+        -102.01689999666996,
+        -81.6113999899244
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "uniform_train",
+      "policy": "checkpoint",
+      "interaction_ms": -2.366600005188957,
+      "ci95_ms": [
+        -2.818499968270771,
+        1.5005999739514664
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    },
+    {
+      "workload": "uniform_train",
+      "policy": "offload",
+      "interaction_ms": -1.8842000281438231,
+      "ci95_ms": [
+        -42.864500006544404,
+        -0.13509999553207308
+      ],
+      "definition": "T_AB-T_A-T_B+T_0; same graph and precision"
+    }
+  ],
+  "robust_budget_counterexamples": [
+    {
+      "workload": "karate_public",
+      "budget_bytes": 67359232,
+      "a": "karate_public/cuda_csr/resident",
+      "b": "karate_public/index_add/offload",
+      "independent": "karate_public/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "karate_public/cuda_csr/resident",
+      "sequential": "karate_public/cuda_csr/resident",
+      "independent_over_joint": 1.404967967764212,
+      "paired_ratio_ci95": [
+        1.2026773107940167,
+        1.6358463537819656
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "karate_public",
+      "budget_bytes": 67424512,
+      "a": "karate_public/cuda_csr/resident",
+      "b": "karate_public/index_add/offload",
+      "independent": "karate_public/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "karate_public/cuda_csr/resident",
+      "sequential": "karate_public/cuda_csr/resident",
+      "independent_over_joint": 1.404967967764212,
+      "paired_ratio_ci95": [
+        1.2026773107940167,
+        1.6358463537819656
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "ring_holdout",
+      "budget_bytes": 168116736,
+      "a": "ring_holdout/cuda_csr/resident",
+      "b": "ring_holdout/index_add/offload",
+      "independent": "ring_holdout/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "ring_holdout/cuda_csr/resident",
+      "sequential": "ring_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.1831171931713556,
+      "paired_ratio_ci95": [
+        1.9012294801014542,
+        4.186756210625255
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "ring_holdout",
+      "budget_bytes": 257711616,
+      "a": "ring_holdout/cuda_csr/resident",
+      "b": "ring_holdout/index_add/checkpoint",
+      "independent": "ring_holdout/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "ring_holdout/cuda_csr/resident",
+      "sequential": "ring_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.2620094672728523,
+      "paired_ratio_ci95": [
+        1.9701321595217465,
+        2.623722663500132
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "skew_train",
+      "budget_bytes": 109186816,
+      "a": "skew_train/cuda_csr/resident",
+      "b": "skew_train/index_add/offload",
+      "independent": "skew_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "skew_train/cuda_csr/resident",
+      "sequential": "skew_train/cuda_csr/resident",
+      "independent_over_joint": 1.5542079226118022,
+      "paired_ratio_ci95": [
+        1.4454791145530193,
+        1.7634276130948336
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "skew_train",
+      "budget_bytes": 138005504,
+      "a": "skew_train/cuda_csr/resident",
+      "b": "skew_train/index_add/checkpoint",
+      "independent": "skew_train/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "skew_train/cuda_csr/resident",
+      "sequential": "skew_train/cuda_csr/resident",
+      "independent_over_joint": 2.0760095359869464,
+      "paired_ratio_ci95": [
+        1.918225057759923,
+        2.358942026874386
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "budget_bytes": 426204416,
+      "a": "uniform_large_holdout/cuda_csr/resident",
+      "b": "uniform_large_holdout/index_add/offload",
+      "independent": "uniform_large_holdout/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_large_holdout/cuda_csr/resident",
+      "sequential": "uniform_large_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.092210640522624,
+      "paired_ratio_ci95": [
+        1.4285619040954336,
+        2.673478992543834
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_large_holdout",
+      "budget_bytes": 838234112,
+      "a": "uniform_large_holdout/cuda_csr/resident",
+      "b": "uniform_large_holdout/index_add/checkpoint",
+      "independent": "uniform_large_holdout/cuda_csr/checkpoint",
+      "independent_feasible": true,
+      "joint": "uniform_large_holdout/cuda_csr/resident",
+      "sequential": "uniform_large_holdout/cuda_csr/resident",
+      "independent_over_joint": 2.4334964488546174,
+      "paired_ratio_ci95": [
+        1.9044463300559982,
+        2.8671097281213576
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_train",
+      "budget_bytes": 109186816,
+      "a": "uniform_train/cuda_csr/resident",
+      "b": "uniform_train/index_add/offload",
+      "independent": "uniform_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_train/cuda_csr/resident",
+      "sequential": "uniform_train/cuda_csr/resident",
+      "independent_over_joint": 1.784249153270245,
+      "paired_ratio_ci95": [
+        1.439515118810781,
+        2.379265552249597
+      ],
+      "sequential_equals_joint": true
+    },
+    {
+      "workload": "uniform_train",
+      "budget_bytes": 138005504,
+      "a": "uniform_train/cuda_csr/resident",
+      "b": "uniform_train/index_add/offload",
+      "independent": "uniform_train/cuda_csr/offload",
+      "independent_feasible": true,
+      "joint": "uniform_train/cuda_csr/resident",
+      "sequential": "uniform_train/cuda_csr/resident",
+      "independent_over_joint": 1.784249153270245,
+      "paired_ratio_ci95": [
+        1.439515118810781,
+        2.379265552249597
+      ],
+      "sequential_equals_joint": true
+    }
+  ],
+  "statistical_note": "Percentile bootstrap of independent-run medians, five run units; exploratory selection, not a confirmatory population claim.",
+  "selection_note": "Budget comparisons are offline selections from a fully measured registry. They are not zero-cost online tuning or learned generalization.",
+  "setup_note": "Amortization estimate uses total recorded graph/data/model setup, including sparse preparation. conversion_ms is only the Graph.create component, not complete sparse preparation. Setup is not a fully cold process/compiler/optimizer benchmark; sparse setup constructs temporary CSR resources that could be avoided."
+}

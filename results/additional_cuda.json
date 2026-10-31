@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": [
+    "non-default-stream-forward-backward",
+    "unsupported-half-refused",
+    "detached-gradient-mutant-detected",
+    "sum-mean-mutant-detected"
+  ],
+  "count": 4,
+  "is_benchmark": false
+}

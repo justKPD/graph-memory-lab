@@ -1,0 +1,6 @@
+{
+  "pyg": "2.8.1",
+  "GCNConv_cuda_forward_backward": "PASS",
+  "cudnn_version": 92400,
+  "is_benchmark": false
+}

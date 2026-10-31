@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-24",
+  "scope": "Selected A+B core plus local control; research extensions are not represented as completed",
+  "items": [
+    {
+      "requirement": "A: CUDA training operator",
+      "status": "IMPLEMENTED",
+      "evidence": "csrc/aggregate.cu; gml/kernel.py \u2014 dual CSR gather and transpose backward"
+    },
+    {
+      "requirement": "A: semantic and gradient contract",
+      "status": "TESTED",
+      "evidence": "38 main checks plus 4 additional CUDA checks; duplicate/isolated/finite difference/RNG/multi-step/mutants"
+    },
+    {
+      "requirement": "A: supported framework baselines",
+      "status": "MEASURED",
+      "evidence": "index_add, PyG scatter, coalesced sparse CSR; no Python-loop headline baseline"
+    },
+    {
+      "requirement": "B: activation policies",
+      "status": "MEASURED",
+      "evidence": "resident, checkpoint and dense floating pinned-CPU offload; all four backends"
+    },
+    {
+      "requirement": "A+B factorial comparison",
+      "status": "MEASURED",
+      "evidence": "60 configurations, 300 main runs, five independent run units"
+    },
+    {
+      "requirement": "Independent composition / sequential retuning / joint frontier",
+      "status": "MEASURED",
+      "evidence": "Independent composition has a fresh confirmed losing case; sequential equals joint in 15/15 offline budget cases"
+    },
+    {
+      "requirement": "Fresh confirmation and bounded reduction",
+      "status": "MEASURED",
+      "evidence": "Five fresh paired workers; two smaller sizes; not globally minimal"
+    },
+    {
+      "requirement": "Held-out graph regimes and public reference",
+      "status": "MEASURED",
+      "evidence": "Unseen size/family regimes; NetworkX karate unweighted/bidirectional"
+    },
+    {
+      "requirement": "Allocated/reserved/host memory and transfers",
+      "status": "MEASURED",
+      "evidence": "Raw samples include host RSS, pinned payload and allocator stats; H2D/D2H calibration"
+    },
+    {
+      "requirement": "Setup and conversion costs",
+      "status": "PARTIAL",
+      "evidence": "Recorded setup, first-step and conversion; amortization estimate. No end-to-end cold-process reuse sweep or full tuning-time comparison"
+    },
+    {
+      "requirement": "Actual training traces",
+      "status": "CAPTURED",
+      "evidence": "Normally completed Kineto trace; qualified Nsight retry; hardware counters blocked"
+    },
+    {
+      "requirement": "Specialist council and simple controller comparison",
+      "status": "EXECUTED",
+      "evidence": "Actual training transitions; fixed/threshold/greedy/council; 34 completed reference-checked steps"
+    },
+    {
+      "requirement": "Typed plans / provenance / stale evidence",
+      "status": "TESTED",
+      "evidence": "Bounded proposals, raw hashes, measured-source snapshot, retained-root ledger checks"
+    },
+    {
+      "requirement": "Learned selector",
+      "status": "EVALUATED_NOT_PROMOTED",
+      "evidence": "Local ridge ties fixed rule; no learned-control improvement claimed"
+    },
+    {
+      "requirement": "Command chat / bounded local execution",
+      "status": "ADDED",
+      "evidence": "Scope, suggestions, compare/explain/propose, recorded replay; local single job with status/cancel/timeout"
+    },
+    {
+      "requirement": "Exact Munich technical people / outreach",
+      "status": "RESEARCHED",
+      "evidence": "Stadler/Sohani public Munich evidence; individualized drafts; exact req ownership unknown"
+    },
+    {
+      "requirement": "Two-page brief / raw evidence / UI",
+      "status": "DELIVERED",
+      "evidence": "Inspected PDF, report viewer, reproducible source ZIP"
+    },
+    {
+      "requirement": "Transfer overlap predictor and prefetch",
+      "status": "DEFERRED_EXTENSION",
+      "evidence": "Serialized offload baseline implemented; no custom overlap, no calibrated window-based predictor"
+    },
+    {
+      "requirement": "Variable checkpoint segments / large scientific model / TE / PhysicsNeMo",
+      "status": "DEFERRED_EXTENSION",
+      "evidence": "Current repeated processor checkpoints each block; frameworks not benchmarked; no superiority claim"
+    },
+    {
+      "requirement": "Virtual/open GPU architecture; C vision path",
+      "status": "DEFERRED_EXTENSION",
+      "evidence": "Vortex/Accel-Sim researched, not installed. Vision C was parked while user selected A+B"
+    },
+    {
+      "requirement": "LLM chat / arbitrary game allocations",
+      "status": "NOT_IMPLEMENTED",
+      "evidence": "Chat is a deterministic command router. No paid API or remote game/GPU allocation control"
+    }
+  ]
+}

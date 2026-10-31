@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "date": "2026-10-24",
+  "method": "Codex in-app browser UI interaction and rendered screenshot inspection",
+  "local_url": "http://127.0.0.1:8765/",
+  "static_test_url": "http://127.0.0.1:8766/",
+  "checks": [
+    "60 measured profiles and 38 numerical checks visible",
+    "Impossible budget produces no-feasible result",
+    "Large held-out comparison shows 7.70 ms vs 19.18 ms and 2.49x",
+    "Backend evidence compare returns recorded configuration",
+    "Backend verify displays manifest hash and 300 source runs",
+    "Unsupported execution command refused",
+    "Static-only server fallback compares saved measurements",
+    "Static-only proposal is marked PROPOSED_NOT_EXECUTED",
+    "Static-only unsupported execution refused",
+    "Narrow viewport layout inspected; no clipped body text; data table scrolls horizontally",
+    "Command chat: recorded council step 1 inspected in UI",
+    "Chat comparison returns actual chosen profile",
+    "Chat recorded-step inspection works",
+    "Chat local job status displays actual cancelled job",
+    "Static chat comparison works without backend",
+    "Static chat refuses run replay and explains local mode"
+  ],
+  "screenshot": "report/browser_preview.png",
+  "public_hosting_tested": false,
+  "chat_screenshot": "report/chat_preview.png"
+}

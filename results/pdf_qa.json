@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "pages": 2,
+  "date": "2026-10-24",
+  "method": "Poppler rendered both A4 pages to PNG; both pages visually inspected",
+  "checks": [
+    "No clipped text or overlapping elements",
+    "Chart axes, labels and intervals legible",
+    "Controller table, limitations and footer fit",
+    "Claims match registry and fresh confirmation; negative results retained"
+  ],
+  "rendered_pages": [
+    "report/technical_overview-1.png",
+    "report/technical_overview-2.png"
+  ]
+}

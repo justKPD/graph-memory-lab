@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checks": [
+    "idle",
+    "raw-command-refused",
+    "unknown-fields-refused",
+    "cross-origin-refused",
+    "real-job-launched",
+    "concurrent-job-refused",
+    "actual-replay-completed",
+    "fresh-result-preserved",
+    "actual-cancel-completed"
+  ],
+  "completed_job": "results/chat_jobs/0ef21bb699a34909b315fdae53cb18d0/runtime.json",
+  "completed_trials": [
+    {
+      "strategy": "fixed",
+      "trained_steps": 7,
+      "pauses": 3,
+      "budget_violations": 0
+    },
+    {
+      "strategy": "threshold",
+      "trained_steps": 9,
+      "pauses": 1,
+      "budget_violations": 0
+    },
+    {
+      "strategy": "greedy_validated",
+      "trained_steps": 9,
+      "pauses": 1,
+      "budget_violations": 0
+    },
+    {
+      "strategy": "council",
+      "trained_steps": 9,
+      "pauses": 1,
+      "budget_violations": 0
+    }
+  ],
+  "cancelled_job": "4f8bb7b707f54340a498e58e1ca690d9"
+}
